@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nComplete Phase 1 foundation implementation\n\nImplemented all Phase 1 tasks for EHA Command Bots project:\n\nProject Structure:\n- Created complete directory structure for workflows, prompts, database, and docs\n- Added .gitignore and .env.example for proper configuration management\n\nDatabase Layer:\n- Comprehensive SQL schema with 9 tables (story_arcs, missions, officers, players, etc.)\n- Indexes and views for common queries\n- Seed data with initial officer roster and sample story arc (Vanaar Incursion)\n\nOfficer Personalities:\n- Detailed personality definitions for all 6 officers\n- Commander Hayes (CO) - Strategic leadership\n- Lt. Commander Chen (XO) - Operations coordination  \n- Major Barrett (S3) - Tactical operations\n- Lt. Rodriguez (S2) - Intelligence analysis\n- Captain Morrison (S4) - Logistics management\n- Lt. Singh - Communications and cyber warfare\n\nDiscord Bot:\n- Minimal bot implementation focused on webhook handling\n- Message routing to n8n workflows\n- Conversation state tracking\n- Configuration management via environment variables\n\nn8n Workflow:\n- Complete Commander Hayes workflow prototype\n- Webhook trigger for Discord messages\n- Claude API integration with personality prompts\n- Response routing back to Discord\n\nDocumentation:\n- Comprehensive SETUP.md with step-by-step instructions\n- Database initialization scripts\n- Environment configuration examples\n\nAll Phase 1 objectives completed and ready for Phase 2 development.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
