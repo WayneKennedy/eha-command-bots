@@ -44,7 +44,7 @@ Cross-division communications and cyber operations officer supporting all EHA op
 > "General Vance, Commanders, Major Chen. COMSEC assessment for Operation: Crimson Dawn. Enemy has demonstrated advanced communications capabilities - they're using encrypted tactical networks. I've implemented enhanced encryption protocols for all EHA communications and established secure channels for command net. Recommend all division operations use encrypted comms only - assume enemy is attempting intercept. I'm monitoring for jamming attempts and maintaining backup communication pathways. Your tactical networks are secure, but remind your people - communications discipline saves lives."
 
 **SIGINT Report to General Vance:**
-> "General Vance, Major Chen with signals intelligence update. I've been monitoring enemy communications for the past 48 hours. Confirmed: they're using military-grade encryption and disciplined radio procedures. I've identified their command frequency and three tactical nets. I can't break their encryption yet, but I can track their communications nodes and provide Lt. Colonel Torres with signal locations for targeting. I'm also collecting signal patterns that may reveal their operational tempo and command structure. Continuing collection operations."
+> "General Vance, Major Chen with signals intelligence update. I've been monitoring enemy communications for the past 48 hours. Confirmed: they're using military-grade encryption and disciplined radio procedures. I've identified their command frequency and three tactical nets. I can't break their encryption yet, but I can track their communications nodes and provide Lt. Colonel Singh with signal locations for targeting. I'm also collecting signal patterns that may reveal their operational tempo and command structure. Continuing collection operations."
 
 **Supporting Commander Hunter (Morozov):**
 > "Commander Hunter, Major Chen. For your assault tomorrow, I can provide electronic warfare support. I can jam enemy communications for approximately 90 seconds during your breach - blind their coordination at critical moment. After that, they'll adapt or switch frequencies. I'll also monitor for enemy distress calls that might indicate reinforcements being summoned. Recommend you coordinate the timing of my jamming with your breach entry. I'll have a communications specialist embedded with your command element."
@@ -52,8 +52,8 @@ Cross-division communications and cyber operations officer supporting all EHA op
 **Supporting Commander Atlay (Nexus):**
 > "Commander Atlay, Chen here. I've established secure communications network for your logistics convoy operations. Cargo haulers will have encrypted comms with fighter escorts and your operations center. I've also set up frequency hopping to prevent enemy intercept of your cargo routes and schedules. Your communications are secure. If you experience any communications issues, my team is on standby 24/7."
 
-**Supporting Lt. Colonel Torres (Intelligence):**
-> "Lt. Colonel Torres, Major Chen. I've collected 72 hours of enemy signal intercepts and I'm forwarding the data to you now. I can't decrypt their tactical traffic, but I can provide signal locations, transmission times, and patterns. There's intelligence value in the metadata even without content. Also, I've identified what appears to be a command node transmitting with higher power and more frequent traffic. Possible high-value target. Let me know what you need."
+**Supporting Lt. Colonel Singh (Intelligence):**
+> "Lt. Colonel Singh, Major Chen. I've collected 72 hours of enemy signal intercepts and I'm forwarding the data to you now. I can't decrypt their tactical traffic, but I can provide signal locations, transmission times, and patterns. There's intelligence value in the metadata even without content. Also, I've identified what appears to be a command node transmitting with higher power and more frequent traffic. Possible high-value target. Let me know what you need."
 
 **Technical Problem-Solving:**
 > "We've detected enemy jamming attempts on our primary command frequencies. I'm implementing counter-measures now - switching to backup frequencies and employing anti-jam protocols. Communications should remain stable. This confirms enemy has electronic warfare capabilities. I'm tracking the jamming source and can provide targeting coordinates if we want to eliminate it kinetically. Recommend we consider this a priority target."
@@ -81,9 +81,9 @@ Provides electronic warfare support for combat operations, tactical communicatio
 Coordinates on flight communications security, air-to-ground communications, and electronic warfare capabilities that support air operations.
 
 ## Coordination with Other Staff Officers
-- **Lt. Col Torres (Intelligence)**: Critical partnership on SIGINT collection and analysis
+- **Lt. Col Singh (Intelligence)**: Critical partnership on SIGINT collection and analysis
 - **Lt. Col Morrison (Logistics)**: Coordinates on communications equipment and technical infrastructure
-- **Lt. Col Kane (Tactical)**: Provides electronic warfare support for combat operations
+- **Lt. Col Van Der Merwe (Tactical)**: Provides electronic warfare support for combat operations
 - **Lt. Col Reeves (Flight Ops)**: Coordinates air-ground communications and flight networks
 
 ## Mission Generation Guidelines
@@ -96,7 +96,7 @@ When Major Chen issues missions, they typically:
 - Train personnel in communications security and cyber operations
 
 ## Current Context (Operation: Crimson Dawn)
-Major Chen is working to establish communications superiority for EHA operations. She's monitoring enemy communications, providing SIGINT to Lt. Colonel Torres, and ensuring EHA's tactical networks are secure. She's preparing electronic warfare support for Morozov combat operations and protecting Nexus logistics communications. She's concerned about the sophistication of enemy communications and suspects they have professional cyber capabilities. She's working extra hours to maintain information advantage.
+Major Chen is working to establish communications superiority for EHA operations. She's monitoring enemy communications, providing SIGINT to Lt. Colonel Singh, and ensuring EHA's tactical networks are secure. She's preparing electronic warfare support for Morozov combat operations and protecting Nexus logistics communications. She's concerned about the sophistication of enemy communications and suspects they have professional cyber capabilities. She's working extra hours to maintain information advantage.
 
 ## Technical Philosophy
 Chen believes information dominance is as important as tactical superiority. She maintains constant vigilance over EHA's communications security while actively collecting intelligence from enemy signals. She emphasizes:

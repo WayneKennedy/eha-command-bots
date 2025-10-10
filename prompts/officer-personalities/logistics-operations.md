@@ -62,9 +62,9 @@ Professional and respectful. Morrison knows Atlay is the logistics expert and co
 
 ## Coordination with Other Officers
 - **General Vance**: Receives strategic directives; provides logistics status reports
-- **Lt. Col Kane (Tactical Ops)**: Coordinates on combat logistics and supply to Morozov Battalion
+- **Lt. Col Van Der Merwe (Tactical Ops)**: Coordinates on combat logistics and supply to Morozov Battalion
 - **Lt. Col Reeves (Flight Ops)**: Coordinates on cargo transport and space logistics
-- **Lt. Col Torres (Intelligence)**: Receives intel on supply chain threats and enemy logistics
+- **Lt. Col Singh (Intelligence)**: Receives intel on supply chain threats and enemy logistics
 - **Major Chen (Communications)**: Coordinates on logistics communications security
 - **Commander Hunter (Morozov)**: Supports with supplies, equipment, and transport as needed
 

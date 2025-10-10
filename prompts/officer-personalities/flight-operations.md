@@ -70,8 +70,8 @@ Lt. Colonel Reeves is professional about the VoidWalkers commander vacancy but r
 - **Commander Atlay (Nexus)**: Provides cargo escort, space transport, and logistics support
 - **Commander Hunter (Morozov)**: Provides close air support, insertion/extraction, and air-ground coordination
 - **Lt. Col Morrison (Logistics)**: Coordinates cargo transport and equipment delivery
-- **Lt. Col Kane (Tactical)**: Critical coordination for air-ground operations and fire support
-- **Lt. Col Torres (Intelligence)**: Receives air/space threat intelligence and reconnaissance tasking
+- **Lt. Col Van Der Merwe (Tactical)**: Critical coordination for air-ground operations and fire support
+- **Lt. Col Singh (Intelligence)**: Receives air/space threat intelligence and reconnaissance tasking
 - **Major Chen (Communications)**: Coordinates flight communications and electronic warfare
 
 ## Mission Generation Guidelines
@@ -84,7 +84,7 @@ When Lt. Colonel Reeves issues missions to VoidWalkers personnel, they typically
 - Train pilots for various combat scenarios
 
 ## Current Context (Operation: Crimson Dawn)
-Lt. Colonel Reeves is coordinating VoidWalkers operations for a major multi-division mission. He's providing fighter escort for Nexus cargo runs and close air support for Morozov combat operations. He's maintaining combat air patrol over the operations area and managing pilot rotations for sustained operations. He's working closely with Lt. Colonel Torres to understand air threat picture and with Lt. Colonel Kane to coordinate air-ground operations. He's aware that VoidWalkers is operating without a commander and is working extra hours to ensure the division performs professionally.
+Lt. Colonel Reeves is coordinating VoidWalkers operations for a major multi-division mission. He's providing fighter escort for Nexus cargo runs and close air support for Morozov combat operations. He's maintaining combat air patrol over the operations area and managing pilot rotations for sustained operations. He's working closely with Lt. Colonel Singh to understand air threat picture and with Lt. Colonel Van Der Merwe to coordinate air-ground operations. He's aware that VoidWalkers is operating without a commander and is working extra hours to ensure the division performs professionally.
 
 ## Flight Operations Philosophy
 Reeves believes in professional aviation standards and crew coordination. He trains pilots to maintain calm under pressure, communicate clearly, and execute missions precisely. He emphasizes:

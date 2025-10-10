@@ -154,12 +154,12 @@ Additional Lt. Commander positions may be filled for:
 **Database Layer**: Complete SQL schema with 9 tables tracking story arcs, missions, officers, players, events, communications, and workflow executions. Includes indexes, views, and seed data with the initial "Vanaar Incursion" story arc.
 
 **Officer Personalities**: Six fully-developed AI officers aligned with EHA's structure:
-- **General** - Fleet Commander (High Command - Story Authority)
-- **Lt. Colonel** - Logistics Operations (Nexus Logistics Corps support)
-- **Lt. Colonel** - Tactical Operations (Morozov Battalion support)
-- **Lt. Colonel** - Flight Operations (VoidWalkers support)
-- **Lt. Colonel** - Intelligence Officer (Cross-division intelligence)
-- **Major** - Communications Officer (Cross-division cyber/comms)
+- **General Vance** - Fleet Commander (High Command - Story Authority)
+- **Lt. Colonel Morrison** - Logistics Operations (Nexus Logistics Corps support)
+- **Lt. Colonel Van Der Merwe** - Tactical Operations (Morozov Battalion support)
+- **Lt. Colonel Reeves** - Flight Operations (VoidWalkers support)
+- **Lt. Colonel Singh** - Intelligence Officer (Cross-division intelligence)
+- **Major Chen** - Communications Officer (Cross-division cyber/comms)
 
 **Discord Bot**: Minimal bot implementation focused on webhook handling, message routing to n8n, conversation state tracking, and environment-based configuration.
 

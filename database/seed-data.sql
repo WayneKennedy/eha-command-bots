@@ -8,11 +8,11 @@ INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
 
 -- Division Support Officers (Tactical/Operational)
 ('Lt. Colonel Morrison', 'Lieutenant Colonel', 'logistics_operations', 'prompts/officer-personalities/logistics-operations.md', 'active'),
-('Lt. Colonel Kane', 'Lieutenant Colonel', 'tactical_operations', 'prompts/officer-personalities/tactical-operations.md', 'active'),
+('Lt. Colonel Van Der Merwe', 'Lieutenant Colonel', 'tactical_operations', 'prompts/officer-personalities/tactical-operations.md', 'active'),
 ('Lt. Colonel Reeves', 'Lieutenant Colonel', 'flight_operations', 'prompts/officer-personalities/flight-operations.md', 'active'),
 
 -- Specialized Staff Officers (Cross-Division Support)
-('Lt. Colonel Torres', 'Lieutenant Colonel', 'intelligence', 'prompts/officer-personalities/intelligence-officer.md', 'active'),
+('Lt. Colonel Singh', 'Lieutenant Colonel', 'intelligence', 'prompts/officer-personalities/intelligence-officer.md', 'active'),
 ('Major Chen', 'Major', 'communications', 'prompts/officer-personalities/communications-officer.md', 'active');
 
 -- Insert Real EHA Commanders (for reference and coordination)
