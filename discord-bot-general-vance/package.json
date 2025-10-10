@@ -1,0 +1,24 @@
+{
+  "name": "eha-general-vance-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for General Vance - EHA Fleet Commander",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["discord", "bot", "eha", "general-vance"],
+  "author": "Commander Atlay",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
