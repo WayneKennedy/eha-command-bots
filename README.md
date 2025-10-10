@@ -103,6 +103,9 @@ Additional Lt. Commander positions may be filled for:
 
 ```
 /eha-command-bots
+├── .github/
+│   └── workflows/
+│       └── deploy.yml (GitHub Actions CI/CD)
 ├── n8n-workflows/
 │   ├── officers/
 │   │   ├── fleet-commander.json (General - High Command)
@@ -118,17 +121,19 @@ Additional Lt. Commander positions may be filled for:
 │   └── shared/
 │       ├── discord-sender.json
 │       └── state-manager.json
-├── discord-bot/
-│   ├── index.js (minimal webhook handler)
-│   └── config.js
+├── discord-bot-general-vance/
+│   ├── index.js (Discord bot for Gen. Vance)
+│   ├── config.js
+│   ├── package.json
+│   └── Dockerfile
 ├── prompts/
 │   ├── officer-personalities/
-│   │   ├── fleet-commander.md (General)
-│   │   ├── logistics-operations.md (Lt. Col)
-│   │   ├── tactical-operations.md (Lt. Col)
-│   │   ├── flight-operations.md (Lt. Col)
-│   │   ├── intelligence-officer.md (Lt. Col)
-│   │   └── communications-officer.md (Major)
+│   │   ├── fleet-commander.md (General Vance)
+│   │   ├── logistics-operations.md (Lt. Col Morrison)
+│   │   ├── tactical-operations.md (Lt. Col Van Der Merwe)
+│   │   ├── flight-operations.md (Lt. Col Reeves)
+│   │   ├── intelligence-officer.md (Lt. Col Singh)
+│   │   └── communications-officer.md (Major Chen)
 │   ├── story-generation/
 │   │   ├── arc-template.md
 │   │   └── mission-template.md
@@ -137,21 +142,28 @@ Additional Lt. Commander positions may be filled for:
 │   ├── schema.sql
 │   └── seed-data.sql
 ├── docs/
-│   ├── SETUP.md
-│   ├── WORKFLOW-GUIDE.md
-│   └── STORY-DESIGN.md
-└── utils/
-    └── helpers.js
+│   ├── VPS-SETUP-HOSTINGER.md (Production VPS setup)
+│   ├── DISCORD-BOT-SETUP-WSL.md (Local development)
+│   ├── DISCORD-BOT-SETUP-SIMPLIFIED.md
+│   ├── EHA-HISTORY.md
+│   ├── EHA-HISTORY-RSI-FORMAT.txt
+│   ├── EHA-MANIFESTO-RSI-FORMAT.txt
+│   └── EHA-CHARTER-RSI-FORMAT.txt
+├── scripts/
+│   └── deploy.sh (Manual deployment script)
+├── docker-compose.yml (Production stack)
+├── DEPLOYMENT.md (Deployment guide)
+└── .env.example
 ```
 
 ## Current Status
 
 **Version**: 0.1.0-alpha
-**Status**: Phase 1 Complete - Ready for Phase 2
+**Status**: Phase 1.5 Complete - Deployment Ready
 
 ### What's Implemented
 
-**Database Layer**: Complete SQL schema with 9 tables tracking story arcs, missions, officers, players, events, communications, and workflow executions. Includes indexes, views, and seed data with the initial "Vanaar Incursion" story arc.
+**Database Layer**: Complete SQL schema with 9 tables tracking story arcs, missions, officers, players, events, communications, and workflow executions. Includes indexes, views, and seed data with the "Operation: Crimson Dawn" story arc (Star Citizen themed).
 
 **Officer Personalities**: Six fully-developed AI officers aligned with EHA's structure:
 - **General Vance** - Fleet Commander (High Command - Story Authority)
@@ -161,11 +173,15 @@ Additional Lt. Commander positions may be filled for:
 - **Lt. Colonel Singh** - Intelligence Officer (Cross-division intelligence)
 - **Major Chen** - Communications Officer (Cross-division cyber/comms)
 
-**Discord Bot**: Minimal bot implementation focused on webhook handling, message routing to n8n, conversation state tracking, and environment-based configuration.
+**Discord Bot (Gen. Vance)**: Production-ready Discord bot with webhook handling, n8n integration, conversation state tracking, and Docker containerization.
 
-**n8n Workflows**: Fleet Commander (General) prototype workflow with Discord webhook trigger, Claude API integration, personality-driven responses, and Discord message delivery.
+**Production Deployment**: Complete Docker Compose stack with PostgreSQL, n8n, and Gen. Vance bot. Automated CI/CD via GitHub Actions deploying to Hostinger VPS (£8/month).
 
-**Documentation**: Comprehensive setup guide covering Discord bot creation, Claude API setup, database initialization, n8n workflow import, and troubleshooting.
+**Documentation**:
+- Discord bot setup guides (WSL and simplified)
+- VPS setup guide for Hostinger Ubuntu 22.04
+- Complete deployment documentation
+- RSI landing page content (History, Manifesto, Charter)
 
 ### Phase 1: Foundation ✅ COMPLETED
 - [x] Project structure setup
@@ -174,11 +190,13 @@ Additional Lt. Commander positions may be filled for:
 - [x] Basic Discord bot skeleton
 - [x] First n8n workflow prototype (Fleet Commander)
 
-### Phase 1.5: EHA Alignment (Current)
-- [ ] Update officer personalities for EHA structure and Star Citizen universe
-- [ ] Revise database schema for EHA divisions and real commanders
-- [ ] Update Fleet Commander workflow with proper rank and authority
-- [ ] Create story arcs aligned with Star Citizen lore
+### Phase 1.5: EHA Alignment ✅ COMPLETED
+- [x] Update officer personalities for EHA structure and Star Citizen universe
+- [x] Revise database schema for EHA divisions and real commanders
+- [x] Update Fleet Commander workflow with proper rank and authority
+- [x] Create story arcs aligned with Star Citizen lore
+- [x] Create RSI landing page content (History, Manifesto, Charter)
+- [x] Docker + GitHub Actions CI/CD deployment system
 
 ### Phase 2: Core Officers (Next)
 - [x] Fleet Commander workflow (General - High Command)
@@ -204,6 +222,34 @@ Additional Lt. Commander positions may be filled for:
 - [ ] Player statistics and adaptation
 - [ ] Emergency/special event system
 - [ ] Debrief and feedback loops
+
+## Deployment
+
+### Production Deployment (Recommended)
+
+**Platform**: Hostinger KVM 2 VPS (£8/month) with Ubuntu 22.04 LTS
+
+**Deployment Method**: Automated CI/CD via GitHub Actions
+
+Every push to `main` automatically deploys to production. See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment guide.
+
+#### Quick Start
+
+1. **Provision VPS**: Sign up for Hostinger KVM 2, select Ubuntu 22.04 LTS
+2. **Follow Setup Guide**: Complete [docs/VPS-SETUP-HOSTINGER.md](docs/VPS-SETUP-HOSTINGER.md)
+3. **Configure GitHub Secrets**: Add all required secrets to repository settings
+4. **Push to Deploy**: `git push origin main` triggers automatic deployment
+
+**Services Running**:
+- PostgreSQL (database) - Internal only
+- n8n (workflow engine) - `http://your-vps-ip:5678`
+- Gen. Vance Bot - Discord (always online)
+
+### Cost Breakdown
+
+- **Monthly**: £8 (Hostinger KVM 2)
+- **Yearly**: £96 + ~£10 domain (optional)
+- **Claude API**: Pay-as-you-go (estimated £5-15/month depending on usage)
 
 ## Development Setup
 
@@ -343,7 +389,9 @@ This is an open-source project. Contributions welcome!
 
 ### Near Term
 - ✅ Complete Phase 1 foundation
-- Deploy first working officer (Commander Hayes)
+- ✅ Complete Phase 1.5 EHA alignment
+- ✅ Production deployment system (Docker + GitHub Actions)
+- Deploy first working officer (General Vance)
 - Complete Phase 2 officer workflows
 - Run alpha test with small player group
 
