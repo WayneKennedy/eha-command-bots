@@ -10,7 +10,7 @@ module.exports = {
 
   // Officer details
   officer: {
-    name: 'General Vance',
+    name: 'Gen. Vance',
     rank: 'General',
     role: 'Fleet Commander',
     callsign: 'Horizon Actual',

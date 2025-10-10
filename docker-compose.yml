@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: eha-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-eha_command}
+      POSTGRES_USER: ${POSTGRES_USER:-eha_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/seed-data.sql:/docker-entrypoint-initdb.d/02-seed-data.sql
+    networks:
+      - eha-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eha_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # n8n Workflow Automation
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: eha-n8n
+    restart: unless-stopped
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=${POSTGRES_DB:-eha_command}
+      - DB_POSTGRESDB_USER=${POSTGRES_USER:-eha_user}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
+      - WEBHOOK_URL=${N8N_WEBHOOK_URL}
+      - GENERIC_TIMEZONE=Europe/London
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n-workflows:/workflows:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - eha-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:5678/healthz || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Gen. Vance Discord Bot
+  bot-general-vance:
+    build:
+      context: ./discord-bot-general-vance
+      dockerfile: Dockerfile
+    container_name: eha-bot-vance
+    restart: unless-stopped
+    environment:
+      - DISCORD_BOT_TOKEN_VANCE=${DISCORD_BOT_TOKEN_VANCE}
+      - DISCORD_CLIENT_ID_VANCE=${DISCORD_CLIENT_ID_VANCE}
+      - DISCORD_GUILD_ID=${DISCORD_GUILD_ID}
+      - CHANNEL_GENERAL_VANCE=${CHANNEL_GENERAL_VANCE}
+      - CHANNEL_COMMAND_BRIEFING=${CHANNEL_COMMAND_BRIEFING}
+      - N8N_WEBHOOK_URL=http://n8n:5678
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - DEBUG_MODE=${DEBUG_MODE:-false}
+      - RESPONSE_DELAY_MS=${RESPONSE_DELAY_MS:-1500}
+    depends_on:
+      - n8n
+    networks:
+      - eha-network
+    healthcheck:
+      test: ["CMD-SHELL", "pidof node || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Nginx Reverse Proxy (optional, for HTTPS)
+  nginx:
+    image: nginx:alpine
+    container_name: eha-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - n8n
+    networks:
+      - eha-network
+    profiles:
+      - production
+
+networks:
+  eha-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  n8n_data:
+    driver: local

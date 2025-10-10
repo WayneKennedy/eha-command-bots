@@ -1,0 +1,121 @@
+name: Deploy EHA Command Bots
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+
+      - name: Add VPS to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Create .env file on VPS
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          cd ~/eha-command-bots
+          cat > .env << 'ENVFILE'
+          # PostgreSQL
+          POSTGRES_DB=eha_command
+          POSTGRES_USER=eha_user
+          POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+
+          # n8n Configuration
+          N8N_BASIC_AUTH_USER=${{ secrets.N8N_BASIC_AUTH_USER }}
+          N8N_BASIC_AUTH_PASSWORD=${{ secrets.N8N_BASIC_AUTH_PASSWORD }}
+          N8N_HOST=${{ secrets.N8N_HOST }}
+          N8N_PROTOCOL=https
+          N8N_WEBHOOK_URL=${{ secrets.N8N_WEBHOOK_URL }}
+
+          # Discord Configuration
+          DISCORD_GUILD_ID=${{ secrets.DISCORD_GUILD_ID }}
+          DISCORD_BOT_TOKEN_VANCE=${{ secrets.DISCORD_BOT_TOKEN_VANCE }}
+          DISCORD_CLIENT_ID_VANCE=${{ secrets.DISCORD_CLIENT_ID_VANCE }}
+          CHANNEL_GENERAL_VANCE=${{ secrets.CHANNEL_GENERAL_VANCE }}
+          CHANNEL_COMMAND_BRIEFING=${{ secrets.CHANNEL_COMMAND_BRIEFING }}
+
+          # Claude API
+          ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
+
+          # Bot Settings
+          DEBUG_MODE=false
+          RESPONSE_DELAY_MS=1500
+          ENVFILE
+          EOF
+
+      - name: Deploy to VPS
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          set -e
+
+          echo "📦 Deploying EHA Command Bots..."
+
+          # Navigate to project directory
+          cd ~/eha-command-bots || exit 1
+
+          # Pull latest changes
+          echo "🔄 Pulling latest code from GitHub..."
+          git fetch origin
+          git reset --hard origin/main
+
+          # Stop existing containers
+          echo "🛑 Stopping existing containers..."
+          docker-compose down
+
+          # Build and start containers
+          echo "🏗️  Building and starting containers..."
+          docker-compose build --no-cache bot-general-vance
+          docker-compose up -d
+
+          # Show container status
+          echo "✅ Deployment complete! Container status:"
+          docker-compose ps
+
+          # Show logs for verification
+          echo "📋 Recent logs:"
+          docker-compose logs --tail=20
+          EOF
+
+      - name: Verify deployment
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          cd ~/eha-command-bots
+
+          # Wait a moment for containers to start
+          sleep 10
+
+          # Check if all containers are running
+          if [ $(docker-compose ps -q | wc -l) -eq $(docker-compose ps | grep "Up" | wc -l) ]; then
+            echo "✅ All containers are running"
+            exit 0
+          else
+            echo "❌ Some containers failed to start"
+            docker-compose ps
+            docker-compose logs
+            exit 1
+          fi
+          EOF
+
+      - name: Send deployment notification
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const emoji = status === 'success' ? '✅' : '❌';
+            console.log(`${emoji} Deployment ${status}`);
