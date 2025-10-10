@@ -114,18 +114,40 @@ Each officer is an autonomous n8n workflow with distinct personality and respons
 ## Current Status
 
 **Version**: 0.1.0-alpha
-**Status**: Initial Development
+**Status**: Phase 1 Complete - Ready for Phase 2
 
-### Phase 1: Foundation (Current)
-- [ ] Project structure setup
-- [ ] Database schema design
-- [ ] Officer personality definitions
-- [ ] Basic Discord bot skeleton
-- [ ] First n8n workflow prototype (single officer)
+### What's Implemented
 
-### Phase 2: Core Officers
-- [ ] Commander workflow
+**Database Layer**: Complete SQL schema with 9 tables tracking story arcs, missions, officers, players, events, communications, and workflow executions. Includes indexes, views, and seed data with the initial "Vanaar Incursion" story arc.
+
+**Officer Personalities**: Six fully-developed officers with detailed backgrounds, distinct voices, and current story context:
+- Commander Hayes - Strategic CO ("The Iron Hand")
+- Lt. Commander Chen - Operational XO
+- Major Barrett - Tactical Operations ("The Hammer")
+- Lt. Rodriguez - Intelligence ("The Oracle")
+- Captain Morrison - Logistics ("The Quartermaster")
+- Lt. Singh - Communications/Cyber ("Ghost")
+
+**Discord Bot**: Minimal bot implementation focused on webhook handling, message routing to n8n, conversation state tracking, and environment-based configuration.
+
+**n8n Workflows**: Commander Hayes prototype workflow with Discord webhook trigger, Claude API integration, personality-driven responses, and Discord message delivery.
+
+**Documentation**: Comprehensive setup guide covering Discord bot creation, Claude API setup, database initialization, n8n workflow import, and troubleshooting.
+
+### Phase 1: Foundation ✅ COMPLETED
+- [x] Project structure setup
+- [x] Database schema design (9 tables with indexes and views)
+- [x] Officer personality definitions (all 6 officers)
+- [x] Basic Discord bot skeleton
+- [x] First n8n workflow prototype (Commander Hayes)
+
+### Phase 2: Core Officers (Next)
+- [x] Commander workflow
+- [ ] XO workflow
 - [ ] Operations Officer workflow
+- [ ] Intelligence Officer workflow
+- [ ] Logistics Officer workflow
+- [ ] Communications Officer workflow
 - [ ] Story arc generator
 - [ ] Mission creation system
 - [ ] Inter-officer communication
@@ -157,12 +179,13 @@ Each officer is an autonomous n8n workflow with distinct personality and respons
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/eha-command-bots.git
+git clone https://github.com/WayneKennedy/eha-command-bots.git
 cd eha-command-bots
 ```
 
-2. Install dependencies:
+2. Install Discord bot dependencies:
 ```bash
+cd discord-bot
 npm install
 ```
 
@@ -174,17 +197,21 @@ cp .env.example .env
 
 4. Initialize database:
 ```bash
-npm run db:init
+cd database
+sqlite3 eha_command.db < schema.sql
+sqlite3 eha_command.db < seed-data.sql
 ```
 
 5. Import n8n workflows:
 ```bash
 # Import workflow JSON files into your local n8n instance
+# Start with n8n-workflows/officers/commander.json
 # See docs/SETUP.md for detailed instructions
 ```
 
 6. Start the Discord bot:
 ```bash
+cd discord-bot
 npm start
 ```
 
@@ -237,11 +264,14 @@ MISSION_FREQUENCY_HOURS=72
 
 ### Officer Personalities
 
-Each officer has:
-- **Background**: Military history, specialties, quirks
+Each officer has a complete personality definition including:
+- **Background**: Military history, specialties, quirks, and nicknames
 - **Voice**: Distinct communication style and vocabulary
 - **Relationships**: Dynamics with other officers
 - **Decision-making**: Preferences for mission types and tactics
+- **Story Context**: Current perspective on the active story arc
+
+See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed definitions of all 6 officers.
 
 ## Contributing
 
@@ -270,9 +300,9 @@ This is an open-source project. Contributions welcome!
 ## Roadmap
 
 ### Near Term
-- Complete Phase 1 foundation
-- Deploy first working officer (Commander or Ops)
-- Generate first story arc
+- ✅ Complete Phase 1 foundation
+- Deploy first working officer (Commander Hayes)
+- Complete Phase 2 officer workflows
 - Run alpha test with small player group
 
 ### Medium Term
