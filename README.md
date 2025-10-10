@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-AI-powered command officers for a space military simulation (MILSIM) organization, built with n8n workflows and Claude API. These autonomous officers interact with org members via Discord to generate evolving story arcs, issue mission briefs, and maintain an immersive command structure.
+AI-powered command officers for **Event Horizon Armada (EHA)**, a Star Citizen private military company, built with n8n workflows and Claude API. These autonomous AI officers work alongside real commanders to generate evolving story arcs, issue mission briefs, and maintain an immersive command structure for the org.
 
 ## Concept
 
@@ -51,23 +51,53 @@ Instead of static scripted missions, this system creates a **living command hier
 
 ## Command Structure
 
-### Proposed Officer Roles
+### Real EHA Leadership (Human Commanders)
 
-Each officer is an autonomous n8n workflow with distinct personality and responsibilities:
+EHA is led by three founding Commanders who each lead a division:
 
-1. **Commander (CO)** - Overall strategic direction, high-level story decisions
-2. **Executive Officer (XO)** - Day-to-day operations, coordinates other officers
-3. **Intelligence Officer (S2)** - Enemy analysis, threat briefings, recon missions
-4. **Operations Officer (S3)** - Mission planning, tactical operations, combat missions
-5. **Logistics Officer (S4)** - Supply missions, resource management, base operations
-6. **Communications Officer** - Information warfare, signals intelligence, hacking ops
+| Rank | Callsign | Name | Focus Area | Division |
+|------|----------|------|------------|----------|
+| **Commander** | NEXUS 1 | Atlay | Logistics and Engineering | Nexus Logistics Corps |
+| **Commander** | BRAVO 1 | Hunter | Foot Combat | Morozov Battalion |
+| **Commander** | ~~WALKER 1~~ | ~~Psykes~~ (Resigned) | Ship Combat | VoidWalkers |
+
+### AI Officer Structure
+
+AI officers augment the real command structure with two tiers:
+
+#### High Command (AI - Strategic/Story Authority)
+**General (O-10) - Fleet Commander** - Top-level AI officer who sets strategic objectives and story arcs that all three real Commanders follow. Maintains overarching narrative and coordinates between divisions.
+
+#### Division Support Officers (AI - Tactical/Operational)
+
+**For Nexus Logistics Corps:**
+- **Lt. Colonel (AI) - Logistics Operations** - Supply chain missions, engineering projects, resource management
+
+**For Morozov Battalion:**
+- **Lt. Colonel (AI) - Tactical Operations** - Combat mission planning, training exercises, ground operations
+
+**For VoidWalkers:**
+- **Lt. Colonel (AI) - Flight Operations** - Ship combat missions, fleet coordination, space operations
+
+#### Specialized Staff Officers (AI - Cross-Division Support)
+
+- **Lt. Colonel (AI) - Intelligence Officer** - Intel analysis, threat briefings, reconnaissance missions (supports all divisions)
+- **Major (AI) - Communications Officer** - Signals intel, cyber ops, information warfare (supports all divisions)
+
+Additional Lt. Commander positions may be filled for:
+- Search & Rescue
+- Dropship Operations
+- Vehicle Combat
+- Recon
 
 ### Officer Interaction Model
 
-- Each officer has a dedicated Discord channel or thread
-- Officers can "talk" to each other (n8n workflow triggers)
+- AI High Command (General) issues strategic directives and story arcs
+- Real Commanders receive orders and direct their divisions
+- AI Division Officers provide tactical mission support to their respective Commanders
+- AI Staff Officers provide cross-division intelligence and communications support
+- All officers can communicate and coordinate through Discord channels
 - Story state is shared across all officers via database
-- Mission generation considers current arc, player stats, and officer specialties
 
 ## File Structure
 
@@ -75,12 +105,12 @@ Each officer is an autonomous n8n workflow with distinct personality and respons
 /eha-command-bots
 ├── n8n-workflows/
 │   ├── officers/
-│   │   ├── commander.json
-│   │   ├── executive-officer.json
-│   │   ├── intelligence-officer.json
-│   │   ├── operations-officer.json
-│   │   ├── logistics-officer.json
-│   │   └── comms-officer.json
+│   │   ├── fleet-commander.json (General - High Command)
+│   │   ├── logistics-operations.json (Lt. Col - Nexus)
+│   │   ├── tactical-operations.json (Lt. Col - Morozov)
+│   │   ├── flight-operations.json (Lt. Col - VoidWalkers)
+│   │   ├── intelligence-officer.json (Lt. Col - Staff)
+│   │   └── communications-officer.json (Major - Staff)
 │   ├── story/
 │   │   ├── arc-generator.json
 │   │   ├── mission-creator.json
@@ -93,9 +123,12 @@ Each officer is an autonomous n8n workflow with distinct personality and respons
 │   └── config.js
 ├── prompts/
 │   ├── officer-personalities/
-│   │   ├── commander.md
-│   │   ├── xo.md
-│   │   └── ...
+│   │   ├── fleet-commander.md (General)
+│   │   ├── logistics-operations.md (Lt. Col)
+│   │   ├── tactical-operations.md (Lt. Col)
+│   │   ├── flight-operations.md (Lt. Col)
+│   │   ├── intelligence-officer.md (Lt. Col)
+│   │   └── communications-officer.md (Major)
 │   ├── story-generation/
 │   │   ├── arc-template.md
 │   │   └── mission-template.md
@@ -120,34 +153,40 @@ Each officer is an autonomous n8n workflow with distinct personality and respons
 
 **Database Layer**: Complete SQL schema with 9 tables tracking story arcs, missions, officers, players, events, communications, and workflow executions. Includes indexes, views, and seed data with the initial "Vanaar Incursion" story arc.
 
-**Officer Personalities**: Six fully-developed officers with detailed backgrounds, distinct voices, and current story context:
-- Commander Hayes - Strategic CO ("The Iron Hand")
-- Lt. Commander Chen - Operational XO
-- Major Barrett - Tactical Operations ("The Hammer")
-- Lt. Rodriguez - Intelligence ("The Oracle")
-- Captain Morrison - Logistics ("The Quartermaster")
-- Lt. Singh - Communications/Cyber ("Ghost")
+**Officer Personalities**: Six fully-developed AI officers aligned with EHA's structure:
+- **General** - Fleet Commander (High Command - Story Authority)
+- **Lt. Colonel** - Logistics Operations (Nexus Logistics Corps support)
+- **Lt. Colonel** - Tactical Operations (Morozov Battalion support)
+- **Lt. Colonel** - Flight Operations (VoidWalkers support)
+- **Lt. Colonel** - Intelligence Officer (Cross-division intelligence)
+- **Major** - Communications Officer (Cross-division cyber/comms)
 
 **Discord Bot**: Minimal bot implementation focused on webhook handling, message routing to n8n, conversation state tracking, and environment-based configuration.
 
-**n8n Workflows**: Commander Hayes prototype workflow with Discord webhook trigger, Claude API integration, personality-driven responses, and Discord message delivery.
+**n8n Workflows**: Fleet Commander (General) prototype workflow with Discord webhook trigger, Claude API integration, personality-driven responses, and Discord message delivery.
 
 **Documentation**: Comprehensive setup guide covering Discord bot creation, Claude API setup, database initialization, n8n workflow import, and troubleshooting.
 
 ### Phase 1: Foundation ✅ COMPLETED
 - [x] Project structure setup
 - [x] Database schema design (9 tables with indexes and views)
-- [x] Officer personality definitions (all 6 officers)
+- [x] Initial officer personality definitions (6 AI officers)
 - [x] Basic Discord bot skeleton
-- [x] First n8n workflow prototype (Commander Hayes)
+- [x] First n8n workflow prototype (Fleet Commander)
+
+### Phase 1.5: EHA Alignment (Current)
+- [ ] Update officer personalities for EHA structure and Star Citizen universe
+- [ ] Revise database schema for EHA divisions and real commanders
+- [ ] Update Fleet Commander workflow with proper rank and authority
+- [ ] Create story arcs aligned with Star Citizen lore
 
 ### Phase 2: Core Officers (Next)
-- [x] Commander workflow
-- [ ] XO workflow
-- [ ] Operations Officer workflow
-- [ ] Intelligence Officer workflow
-- [ ] Logistics Officer workflow
-- [ ] Communications Officer workflow
+- [x] Fleet Commander workflow (General - High Command)
+- [ ] Logistics Operations workflow (Lt. Col - Nexus)
+- [ ] Tactical Operations workflow (Lt. Col - Morozov)
+- [ ] Flight Operations workflow (Lt. Col - VoidWalkers)
+- [ ] Intelligence Officer workflow (Lt. Col - Staff)
+- [ ] Communications Officer workflow (Major - Staff)
 - [ ] Story arc generator
 - [ ] Mission creation system
 - [ ] Inter-officer communication
@@ -264,14 +303,17 @@ MISSION_FREQUENCY_HOURS=72
 
 ### Officer Personalities
 
-Each officer has a complete personality definition including:
-- **Background**: Military history, specialties, quirks, and nicknames
-- **Voice**: Distinct communication style and vocabulary
-- **Relationships**: Dynamics with other officers
-- **Decision-making**: Preferences for mission types and tactics
-- **Story Context**: Current perspective on the active story arc
+Each AI officer has a complete personality definition including:
+- **Background**: Military history, specialties, and command style
+- **Voice**: Distinct communication style appropriate to rank and role
+- **Relationships**: Dynamics with real commanders and other AI officers
+- **Decision-making**: Strategic or tactical preferences based on role
+- **Story Context**: Current perspective on active story arcs
+- **Authority Level**: Clear delineation of AI vs real commander authority
 
-See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed definitions of all 6 officers.
+The AI officers serve the real EHA commanders (Atlay, Hunter, and future VoidWalkers commander) and help maintain immersive gameplay through mission briefings, story progression, and operational support.
+
+See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed definitions of all 6 AI officers.
 
 ## Contributing
 
