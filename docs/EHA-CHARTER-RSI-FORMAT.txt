@@ -1,0 +1,189 @@
+                                                                             *Event Horizon Armada Charter*
+
+                                                                                   *Preamble*
+
+This Charter establishes the rules and standards that all members of Event Horizon Armada shall abide by. Membership in EHA is a privilege earned through skill and maintained through professionalism. These rules exist to preserve the organization's integrity, protect our reputation, and ensure that every member can operate with confidence in their fellow operators.
+
+
+                                                                                   *Article I: Membership Standards*
+
+*Section 1 - Recruitment and Vetting*
+All prospective members undergo a vetting process designed to identify skilled, professional operators who share our values. We maintain high standards because our reputation depends on every member's conduct.
+
+*Section 2 - Probationary Period*
+New recruits serve a 4-week probationary period including training and group operations. At the end of probation, recruits who demonstrate skill, professionalism, and cultural fit are offered permanent positions with the rank of Lance Corporal.
+
+*Section 3 - Operative Status*
+Members who need to step back from active duty but wish to remain part of the community may request Operative status. Operatives maintain Discord access, may participate in operations, and can resume active status. Two subcategories exist:
+- Reserve: Operatives temporarily away from Star Citizen
+- Affiliate: Operatives primarily active with another organization but maintaining EHA ties
+
+*Section 4 - Standards of Conduct*
+All members will:
+- Maintain professional conduct in all EHA operations and communications
+- Represent EHA honorably in interactions with other organizations and the public
+- Participate actively in training, operations, and community events
+- Support fellow members and contribute to organizational success
+- Respect the chain of command while maintaining open communication
+
+
+                                                                                   *Article II: Operational Rules*
+
+*Section 1 - Lawful Operations*
+EHA maintains lawful standing with the UEE. Members shall not engage in:
+- Piracy or unlawful attacks on civilian vessels
+- Griefing or harassment of other players
+- Unsanctioned criminal operations that damage EHA's reputation
+- Operations contrary to contract terms or organizational ethics
+
+*Section 2 - Mission Execution*
+When engaged in EHA operations, members shall:
+- Follow mission briefings and command directives
+- Coordinate with team members and maintain communication
+- Execute missions professionally regardless of difficulty
+- Report mission outcomes honestly, including failures and lessons learned
+- Prioritize team success over individual glory
+
+*Section 3 - Rules of Engagement*
+Members engaged in combat operations shall:
+- Confirm targets before engaging (no friendly fire)
+- Follow established Rules of Engagement for each contract
+- Use appropriate force for the situation
+- Protect civilians and non-combatants when feasible
+- Withdraw when ordered, even if combat is ongoing
+
+*Section 4 - Equipment and Resources*
+Members are responsible for maintaining their equipment and contributing to organizational capability. EHA provides support, but members must:
+- Maintain personal ships and equipment in operational condition
+- Use organizational resources (ammunition, fuel, supplies) responsibly
+- Return borrowed equipment in good condition
+- Contribute to organizational logistics when able
+
+
+                                                                                   *Article III: Command Structure*
+
+*Section 1 - Equal Commander Authority*
+EHA is led by three Commanders with equal authority in their respective divisions:
+- Commander Atlay (NEXUS 1) - Logistics and Engineering, Nexus Logistics Corps
+- Commander Hunter (BRAVO 1) - Foot Combat, Morozov Battalion
+- VoidWalkers Commander (currently vacant) - Ship Combat, VoidWalkers
+
+No single Commander has authority over the others. Strategic decisions affecting the entire organization require coordination between Commanders.
+
+*Section 2 - Chain of Command*
+Members shall respect the chain of command within their division while maintaining the right to communicate concerns through appropriate channels. Direct orders from Commanders and officers shall be followed unless they violate this Charter or legal/ethical standards.
+
+*Section 3 - AI Officers*
+AI officers (General Vance, Lt. Colonels Morrison, Van Der Merwe, Reeves, Singh, and Major Chen) provide strategic coordination, tactical planning, and mission support. They augment human command but do not replace it. Members should engage with AI officers professionally as they would human leadership.
+
+*Section 4 - Dispute Resolution*
+Disputes between members shall be resolved through:
+1. Direct communication between involved parties
+2. Mediation by division officers if needed
+3. Review by division Commander if unresolved
+4. Joint Commander review for cross-division disputes
+
+
+                                                                                   *Article IV: Communication and Community*
+
+*Section 1 - Discord Standards*
+EHA's Discord server is our primary communication platform. Members shall:
+- Use appropriate channels for different topics
+- Maintain respectful communication even in disagreement
+- Avoid spam, excessive profanity, or disruptive behavior
+- Report security concerns or violations of this Charter
+- Participate constructively in community discussions
+
+*Section 2 - Operational Security*
+Members shall protect sensitive information including:
+- Mission plans and tactical details before execution
+- Contract terms and client information
+- Internal organizational discussions
+- Personal information of other members
+- Proprietary tactics or strategies
+
+*Section 3 - External Communications*
+When representing EHA publicly, members shall:
+- Present the organization professionally
+- Avoid making commitments or statements on behalf of EHA without authorization
+- Direct media or recruitment inquiries to appropriate leadership
+- Maintain positive relationships with allied organizations
+- Resolve conflicts with other organizations maturely
+
+
+                                                                                   *Article V: Division-Specific Rules*
+
+*Section 1 - Nexus Logistics Corps*
+Members of Nexus shall:
+- Prioritize mission sustainability and supply chain security
+- Coordinate cargo operations with fighter escort when needed
+- Maintain engineering standards and technical excellence
+- Share logistics knowledge and support other divisions
+- Report Commander Atlay for division operations
+
+*Section 2 - Morozov Battalion*
+Members of Morozov shall:
+- Maintain combat readiness through regular training
+- Execute ground operations with discipline and coordination
+- Prioritize team survival over individual heroics
+- Develop tactical skills and share combat knowledge
+- Report to Commander Hunter for division operations
+
+*Section 3 - VoidWalkers*
+Members of VoidWalkers shall:
+- Maintain flight proficiency and ship combat skills
+- Coordinate with ground forces for combined operations
+- Provide air support and space superiority as needed
+- Practice professional flight operations and communication
+- Report to Lt. Colonel Reeves (acting) for division operations
+
+
+                                                                                   *Article VI: Consequences and Enforcement*
+
+*Section 1 - Minor Violations*
+Minor violations of this Charter (late to operations, minor communication issues, etc.) will be addressed through:
+- Verbal counseling from division officers
+- Additional training if skills are lacking
+- Mediation if interpersonal conflicts exist
+
+*Section 2 - Serious Violations*
+Serious violations (griefing, theft, harassment, insubordination, etc.) may result in:
+- Formal reprimand and probationary status
+- Suspension from operations pending review
+- Reduction in rank or removal from leadership positions
+- Termination of membership if violations are severe or repeated
+
+*Section 3 - Immediate Removal*
+The following violations result in immediate removal from EHA:
+- Theft of organizational assets or member property
+- Intentional sabotage of operations or equipment
+- Serious harassment or toxic behavior
+- Espionage or sharing sensitive information with hostile organizations
+- Any illegal activity that jeopardizes EHA or its members
+
+*Section 4 - Appeals Process*
+Members facing serious consequences may appeal to the joint Commanders for review. Appeals must be submitted in writing within 7 days of the action being contested.
+
+
+                                                                                   *Article VII: Amendments*
+
+This Charter may be amended by unanimous agreement of the active Commanders (currently Atlay and Hunter, pending VoidWalkers Commander appointment). Proposed amendments will be shared with membership for feedback before implementation.
+
+Major changes to organizational structure, mission, or values require consultation with the broader membership to ensure alignment with community consensus.
+
+
+                                                                                   *Closing Statement*
+
+This Charter exists to protect what we've built: a professional military organization that values skill, integrity, and community. These rules are not restrictions - they are the foundation that allows every member to operate with confidence, knowing their fellow operators maintain the same standards.
+
+Event Horizon Armada succeeds when every member upholds these principles. We are only as strong as our weakest link, only as reliable as our least professional member, only as trustworthy as our most careless operator.
+
+Live up to this Charter. Honor your fellow members. Execute missions professionally. Build something worth belonging to.
+
+
+  "Beyond the Horizon, Strength Prevails."
+
+
+  Adopted: 2948
+  Current Version: 1.0 (2953)
+  Authority: Joint Commanders of Event Horizon Armada
