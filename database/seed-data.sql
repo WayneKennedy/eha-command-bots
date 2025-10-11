@@ -4,12 +4,12 @@
 -- Insert AI Officer Roles (aligned with EHA structure)
 INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
 -- High Command (Story Authority)
-('General Vance', 'General', 'fleet_commander', 'prompts/officer-personalities/fleet-commander.md', 'active'),
+('General Vance', 'General', 'commander', 'prompts/officer-personalities/fleet-commander.md', 'active'),
 
 -- Division Support Officers (Tactical/Operational)
-('Lt. Colonel Morrison', 'Lieutenant Colonel', 'logistics_operations', 'prompts/officer-personalities/logistics-operations.md', 'active'),
-('Lt. Colonel Van Der Merwe', 'Lieutenant Colonel', 'tactical_operations', 'prompts/officer-personalities/tactical-operations.md', 'active'),
-('Lt. Colonel Reeves', 'Lieutenant Colonel', 'flight_operations', 'prompts/officer-personalities/flight-operations.md', 'active'),
+('Lt. Colonel Morrison', 'Lieutenant Colonel', 'logistics', 'prompts/officer-personalities/logistics-operations.md', 'active'),
+('Lt. Colonel Van Der Merwe', 'Lieutenant Colonel', 'operations', 'prompts/officer-personalities/tactical-operations.md', 'active'),
+('Lt. Colonel Reeves', 'Lieutenant Colonel', 'operations', 'prompts/officer-personalities/flight-operations.md', 'active'),
 
 -- Specialized Staff Officers (Cross-Division Support)
 ('Lt. Colonel Singh', 'Lieutenant Colonel', 'intelligence', 'prompts/officer-personalities/intelligence-officer.md', 'active'),
@@ -18,15 +18,15 @@ INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
 -- Insert Real EHA Commanders (for reference and coordination)
 -- Note: These are not AI - they represent the real commanders
 INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
-('Commander Atlay', 'Commander', 'human_commander_nexus', NULL, 'active'),
-('Commander Hunter', 'Commander', 'human_commander_morozov', NULL, 'active');
+('Commander Atlay', 'Commander', 'commander', NULL, 'active'),
+('Commander Hunter', 'Commander', 'commander', NULL, 'active');
 -- Commander for VoidWalkers position vacant (Psykes resigned)
 
 -- Insert a sample story arc for testing (Star Citizen themed)
 INSERT INTO story_arcs (title, description, start_date, status, difficulty_level) VALUES
 ('Operation: Crimson Dawn',
 'A series of coordinated pirate attacks have disrupted trade routes in the Stanton system. Intelligence suggests these raids are more organized than typical pirate activity, possibly backed by a rival PMC or criminal syndicate. EHA has been contracted to investigate, secure the trade lanes, and eliminate the threat. All three divisions - Nexus, Morozov, and VoidWalkers - will be deployed in coordinated operations.',
-datetime('now'),
+CURRENT_TIMESTAMP,
 'planning',
 6);
 
