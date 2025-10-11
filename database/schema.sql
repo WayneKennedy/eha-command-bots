@@ -1,24 +1,24 @@
 -- EHA Command Bots Database Schema
--- SQLite compatible (can be adapted for PostgreSQL)
+-- PostgreSQL compatible
 
 -- Story Arcs Table
 -- Tracks major narrative arcs over time
 CREATE TABLE story_arcs (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     description TEXT,
-    start_date DATETIME NOT NULL,
-    end_date DATETIME,
+    start_date TIMESTAMP NOT NULL,
+    end_date TIMESTAMP,
     status TEXT CHECK(status IN ('planning', 'active', 'completed', 'archived')) DEFAULT 'planning',
     difficulty_level INTEGER CHECK(difficulty_level BETWEEN 1 AND 10) DEFAULT 5,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Missions Table
 -- Individual missions within story arcs
 CREATE TABLE missions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     story_arc_id INTEGER,
     title TEXT NOT NULL,
     description TEXT,
@@ -26,13 +26,13 @@ CREATE TABLE missions (
     difficulty INTEGER CHECK(difficulty BETWEEN 1 AND 10) DEFAULT 5,
     officer_id INTEGER, -- Officer who issued the mission
     status TEXT CHECK(status IN ('draft', 'briefed', 'in_progress', 'completed', 'failed', 'cancelled')) DEFAULT 'draft',
-    briefing_date DATETIME,
-    completion_date DATETIME,
+    briefing_date TIMESTAMP,
+    completion_date TIMESTAMP,
     outcome TEXT,
     player_count INTEGER DEFAULT 0,
     success_rating INTEGER CHECK(success_rating BETWEEN 0 AND 100),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (story_arc_id) REFERENCES story_arcs(id),
     FOREIGN KEY (officer_id) REFERENCES officers(id)
 );
@@ -40,7 +40,7 @@ CREATE TABLE missions (
 -- Officers Table
 -- AI command officers with personalities
 CREATE TABLE officers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     rank TEXT NOT NULL,
     role TEXT CHECK(role IN ('commander', 'xo', 'intelligence', 'operations', 'logistics', 'communications')),
@@ -48,14 +48,14 @@ CREATE TABLE officers (
     discord_channel_id TEXT,
     status TEXT CHECK(status IN ('active', 'inactive', 'on_leave')) DEFAULT 'active',
     missions_issued INTEGER DEFAULT 0,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Players Table
 -- Org members who participate in missions
 CREATE TABLE players (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     discord_user_id TEXT NOT NULL UNIQUE,
     discord_username TEXT NOT NULL,
     display_name TEXT,
@@ -63,20 +63,20 @@ CREATE TABLE players (
     missions_failed INTEGER DEFAULT 0,
     total_participation INTEGER DEFAULT 0,
     performance_rating REAL DEFAULT 50.0, -- 0-100 scale
-    last_active DATETIME,
-    joined_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_active TIMESTAMP,
+    joined_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     notes TEXT
 );
 
 -- Mission Participants Table
 -- Many-to-many relationship between missions and players
 CREATE TABLE mission_participants (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     mission_id INTEGER NOT NULL,
     player_id INTEGER NOT NULL,
     participation_status TEXT CHECK(participation_status IN ('signed_up', 'confirmed', 'completed', 'absent', 'dropped')) DEFAULT 'signed_up',
     performance_notes TEXT,
-    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (mission_id) REFERENCES missions(id) ON DELETE CASCADE,
     FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE,
     UNIQUE(mission_id, player_id)
@@ -85,13 +85,13 @@ CREATE TABLE mission_participants (
 -- Story Events Table
 -- Key events and plot points within story arcs
 CREATE TABLE story_events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     story_arc_id INTEGER NOT NULL,
     event_title TEXT NOT NULL,
     event_description TEXT,
     event_type TEXT CHECK(event_type IN ('plot_point', 'player_action', 'officer_decision', 'random_event', 'climax')),
     trigger_condition TEXT, -- What caused this event
-    occurred_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    occurred_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     impact_level INTEGER CHECK(impact_level BETWEEN 1 AND 10) DEFAULT 5,
     FOREIGN KEY (story_arc_id) REFERENCES story_arcs(id) ON DELETE CASCADE
 );
@@ -99,14 +99,14 @@ CREATE TABLE story_events (
 -- Officer Communications Table
 -- Messages and interactions between officers (for narrative consistency)
 CREATE TABLE officer_communications (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     from_officer_id INTEGER NOT NULL,
     to_officer_id INTEGER,
     subject TEXT,
     message_content TEXT,
     communication_type TEXT CHECK(communication_type IN ('briefing', 'coordination', 'report', 'discussion')),
     related_mission_id INTEGER,
-    sent_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (from_officer_id) REFERENCES officers(id),
     FOREIGN KEY (to_officer_id) REFERENCES officers(id),
     FOREIGN KEY (related_mission_id) REFERENCES missions(id)
@@ -115,12 +115,12 @@ CREATE TABLE officer_communications (
 -- Story State Table
 -- Key-value store for dynamic story state
 CREATE TABLE story_state (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     story_arc_id INTEGER NOT NULL,
     state_key TEXT NOT NULL,
     state_value TEXT,
     value_type TEXT CHECK(value_type IN ('string', 'number', 'boolean', 'json')) DEFAULT 'string',
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (story_arc_id) REFERENCES story_arcs(id) ON DELETE CASCADE,
     UNIQUE(story_arc_id, state_key)
 );
@@ -128,15 +128,15 @@ CREATE TABLE story_state (
 -- Workflow Executions Table
 -- Track n8n workflow executions for debugging and auditing
 CREATE TABLE workflow_executions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     workflow_name TEXT NOT NULL,
     execution_id TEXT UNIQUE,
     officer_id INTEGER,
     mission_id INTEGER,
     status TEXT CHECK(status IN ('running', 'success', 'error', 'cancelled')) DEFAULT 'running',
     error_message TEXT,
-    started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    completed_at DATETIME,
+    started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    completed_at TIMESTAMP,
     execution_data TEXT, -- JSON data
     FOREIGN KEY (officer_id) REFERENCES officers(id),
     FOREIGN KEY (mission_id) REFERENCES missions(id)
