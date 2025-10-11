@@ -173,10 +173,11 @@ LEFT JOIN officers o ON m.officer_id = o.id
 LEFT JOIN story_arcs sa ON m.story_arc_id = sa.id
 LEFT JOIN mission_participants mp ON m.id = mp.mission_id
 WHERE m.status IN ('briefed', 'in_progress')
-GROUP BY m.id;
+GROUP BY m.id, m.title, m.mission_type, m.difficulty, o.name, o.rank, sa.title, m.status, m.briefing_date;
 
 CREATE VIEW player_stats AS
 SELECT
+    p.id,
     p.discord_username,
     p.display_name,
     p.missions_completed,
@@ -187,15 +188,23 @@ SELECT
     COUNT(mp.id) as total_missions_signed_up
 FROM players p
 LEFT JOIN mission_participants mp ON p.id = mp.player_id
-GROUP BY p.id;
+GROUP BY p.id, p.discord_username, p.display_name, p.missions_completed, p.missions_failed, p.total_participation, p.performance_rating, p.last_active;
 
 CREATE VIEW current_story_arc AS
 SELECT
-    sa.*,
+    sa.id,
+    sa.title,
+    sa.description,
+    sa.start_date,
+    sa.end_date,
+    sa.status,
+    sa.difficulty_level,
+    sa.created_at,
+    sa.updated_at,
     COUNT(DISTINCT m.id) as total_missions,
     COUNT(DISTINCT se.id) as total_events
 FROM story_arcs sa
 LEFT JOIN missions m ON sa.id = m.story_arc_id
 LEFT JOIN story_events se ON sa.id = se.story_arc_id
 WHERE sa.status = 'active'
-GROUP BY sa.id;
+GROUP BY sa.id, sa.title, sa.description, sa.start_date, sa.end_date, sa.status, sa.difficulty_level, sa.created_at, sa.updated_at;
