@@ -15,6 +15,21 @@ CREATE TABLE story_arcs (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Officers Table
+-- AI command officers with personalities
+CREATE TABLE officers (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE,
+    rank TEXT NOT NULL,
+    role TEXT CHECK(role IN ('commander', 'xo', 'intelligence', 'operations', 'logistics', 'communications')),
+    personality_prompt_file TEXT, -- Reference to personality definition file
+    discord_channel_id TEXT,
+    status TEXT CHECK(status IN ('active', 'inactive', 'on_leave')) DEFAULT 'active',
+    missions_issued INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Missions Table
 -- Individual missions within story arcs
 CREATE TABLE missions (
@@ -35,21 +50,6 @@ CREATE TABLE missions (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (story_arc_id) REFERENCES story_arcs(id),
     FOREIGN KEY (officer_id) REFERENCES officers(id)
-);
-
--- Officers Table
--- AI command officers with personalities
-CREATE TABLE officers (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL UNIQUE,
-    rank TEXT NOT NULL,
-    role TEXT CHECK(role IN ('commander', 'xo', 'intelligence', 'operations', 'logistics', 'communications')),
-    personality_prompt_file TEXT, -- Reference to personality definition file
-    discord_channel_id TEXT,
-    status TEXT CHECK(status IN ('active', 'inactive', 'on_leave')) DEFAULT 'active',
-    missions_issued INTEGER DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Players Table
