@@ -123,8 +123,7 @@ Additional Lt. Commander positions may be filled for:
 │   ├── Dockerfile                       # Docker container config
 │   └── README.md                        # Bot documentation
 ├── n8n-workflows/                       # n8n workflow definitions
-│   ├── generic-officer-workflow.json    # Generic workflow for all officers (v2.0)
-│   └── general-vance-v1.114.json        # Legacy hardcoded workflow (deprecated)
+│   └── generic-officer-v1.114.4.json    # Generic workflow for all officers (n8n v1.114.4)
 ├── database/                            # Database schema
 │   ├── schema.sql                       # Main schema (9 tables)
 │   ├── seed-data.sql                    # Initial data
@@ -288,7 +287,7 @@ sqlite3 eha_command.db < seed-data.sql
 5. Import n8n workflow:
 ```bash
 # Import the generic workflow into your n8n instance
-# Use n8n-workflows/generic-officer-workflow.json
+# Import from URL: https://raw.githubusercontent.com/WayneKennedy/eha-command-bots/main/n8n-workflows/generic-officer-v1.114.4.json
 # See docs/N8N-DEPLOYMENT.md for detailed instructions
 ```
 
