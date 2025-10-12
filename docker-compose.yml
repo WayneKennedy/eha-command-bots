@@ -59,14 +59,15 @@ services:
       timeout: 10s
       retries: 3
 
-  # Gen. Vance Discord Bot
+  # Gen. Vance Discord Bot (Generic Officer Bot)
   bot-general-vance:
     build:
-      context: ./discord-bot-general-vance
+      context: ./discord-bot-officer
       dockerfile: Dockerfile
     container_name: eha-bot-vance
     restart: unless-stopped
     environment:
+      - OFFICER_ID=vance
       - DISCORD_BOT_TOKEN_VANCE=${DISCORD_BOT_TOKEN_VANCE}
       - DISCORD_CLIENT_ID_VANCE=${DISCORD_CLIENT_ID_VANCE}
       - DISCORD_GUILD_ID=${DISCORD_GUILD_ID}
@@ -76,6 +77,9 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - DEBUG_MODE=${DEBUG_MODE:-false}
       - RESPONSE_DELAY_MS=${RESPONSE_DELAY_MS:-1500}
+    volumes:
+      - ./officers:/app/officers:ro
+      - ./knowledge-base:/app/knowledge-base:ro
     depends_on:
       - n8n
     networks:

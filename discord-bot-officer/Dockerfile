@@ -1,4 +1,4 @@
-# Gen. Vance Discord Bot - Production Dockerfile
+# Generic Officer Discord Bot - Production Dockerfile
 FROM node:20-alpine
 
 # Set working directory
@@ -11,6 +11,9 @@ RUN npm install --only=production
 # Copy application code
 COPY . .
 
+# Create directories for mounted volumes
+RUN mkdir -p /app/officers /app/knowledge-base
+
 # Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nodejs -u 1001 && \
@@ -18,9 +21,9 @@ RUN addgroup -g 1001 -S nodejs && \
 
 USER nodejs
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})" || exit 1
+# Health check - verify node process is running
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD pgrep node || exit 1
 
 # Run the bot
 CMD ["node", "index.js"]
