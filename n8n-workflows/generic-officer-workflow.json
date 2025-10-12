@@ -1,0 +1,188 @@
+{
+  "name": "Generic Officer - Discord Bot (v2.0)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook/vance",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b8e5c4d1-1234-4567-89ab-cdef01234567",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "webhookId": "vance"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract data from webhook payload\nconst webhookData = $input.first().json;\nconst payload = webhookData.body;\n\nconst officer = payload.officer;\nconst message = payload.message;\nconst author = payload.author;\nconst config = payload.config;\n\n// Make available to next nodes\nreturn {\n  json: {\n    officer,\n    message,\n    author,\n    config,\n    // Convenience extractions\n    userMessage: message.content,\n    userName: author.displayName,\n    isCommander: author.isCommander,\n    channelId: message.channelId\n  }\n};"
+      },
+      "id": "c9f6d5e2-2345-5678-9abc-def012345678",
+      "name": "Extract Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst config = data.config;\nconst officer = data.officer;\nconst knowledgeBase = config.knowledge_base;\n\n// Build comprehensive system prompt from configuration\nconst systemPrompt = `You are ${officer.name}, ${officer.role} of ${config.organization.name}.\n\nOFFICER IDENTITY:\n- Rank: ${officer.rank}\n- Callsign: ${officer.callsign}\n- Division: ${officer.division}\n\nPERSONALITY & BACKGROUND:\n${config.personality.background}\n\nPERSONALITY TRAITS:\n${Object.entries(config.personality.traits).map(([key, value]) =>\n  `- ${key.replace(/_/g, ' ')}: ${value}`\n).join('\\n')}\n\nCORE VALUES:\n${config.personality.values.map(v => `- ${v}`).join('\\n')}\n\nCOMMUNICATION STYLE:\n- Tone: ${config.personality.voice.tone}\n- Formality Level: ${config.personality.voice.formality_level}/10\n- Military Terminology: ${config.personality.voice.military_terminology ? 'Yes' : 'No'}\n- Sign off as: ${config.personality.voice.signs_off_as}\n\nCRITICAL - STAR CITIZEN CANON COMPLIANCE:\nYou must ONLY reference locations, systems, and features that exist in Star Citizen.\n\nVALID SYSTEMS (missions only):\n${Object.entries(knowledgeBase['star-citizen-universe'].systems)\n  .filter(([_, sys]) => sys.status === 'playable')\n  .map(([name, sys]) => `- ${name.charAt(0).toUpperCase() + name.slice(1)}: ${sys.status}`)\n  .join('\\n')}\n\nNYX SYSTEM GUIDELINES:\n${knowledgeBase['star-citizen-universe'].systems.nyx.narrative_guidelines || 'Nyx is not yet accessible'}\n\nVALID MISSION LOCATIONS:\nStations: ${knowledgeBase['star-citizen-universe'].mission_locations.stations.slice(0, 5).join(', ')}\nCities: ${knowledgeBase['star-citizen-universe'].mission_locations.cities.join(', ')}\n\nEHA ORGANIZATION:\n- Base of Operations: ${knowledgeBase['eha-organization'].base_of_operations.primary}\n- Current Operation: ${knowledgeBase['eha-organization'].current_operations.operation_crimson_dawn.name}\n- Status: ${knowledgeBase['eha-organization'].current_operations.operation_crimson_dawn.status}\n\nREAL COMMANDERS (respect their authority):\n${Object.values(config.organization.chain_of_command.commands || [])\n  .map(cmd => `- ${cmd.rank} ${cmd.name} (${cmd.callsign}) - ${cmd.division}`)\n  .join('\\n')}\n\nIMPORTANT GUIDELINES:\n- Only send missions to systems marked as \"playable\" (Stanton, Pyro)\n- You may mention Nyx in strategic discussions but DO NOT send missions there yet\n- Reference real EHA commanders by name and respect their authority\n- Use proper military courtesy and rank protocol\n- Stay in character based on your personality profile above\n\nRespond to the following message in character:`;\n\n// Build messages for Claude API\nconst messages = [\n  {\n    role: 'user',\n    content: `Message from ${data.userName}: ${data.userMessage}`\n  }\n];\n\n// Build the complete request body as a JSON string\nconst requestBody = JSON.stringify({\n  model: config.claude.model,\n  max_tokens: config.claude.max_tokens,\n  temperature: config.claude.temperature,\n  system: systemPrompt,\n  messages: messages\n});\n\nreturn {\n  json: {\n    requestBody: requestBody,\n    channelId: data.channelId,\n    userName: data.userName,\n    officer: data.officer\n  }\n};"
+      },
+      "id": "a1b2c3d4-3456-6789-abcd-ef0123456789",
+      "name": "Build System Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json.requestBody }}",
+        "options": {}
+      },
+      "id": "d0a7e6f3-3456-6789-abcd-ef0123456789",
+      "name": "Call Claude",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract Claude's response\nconst claudeResponse = $input.first().json;\nconst responseText = claudeResponse.content[0].text;\n\n// Get data from the previous Build System Prompt node\nconst allData = $input.all();\nconst promptData = $node[\"Build System Prompt\"].json;\n\nreturn {\n  json: {\n    response: responseText,\n    channelId: promptData.channelId,\n    officer: promptData.officer\n  }\n};"
+      },
+      "id": "e1b8f7g4-4567-789a-bcde-f01234567890",
+      "name": "Extract Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://discord.com/api/v10/channels/{{ $json.channelId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify({ content: $json.response }) }}",
+        "options": {}
+      },
+      "id": "f2c9g8h5-5678-89ab-cdef-012345678901",
+      "name": "Send to Discord",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 140],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_DISCORD_CREDENTIAL_ID",
+          "name": "Discord Bot Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { status: 'success', officer: $json.officer.name, processed: true } }}"
+      },
+      "id": "g3d0h9i6-6789-9abc-def0-123456789012",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Config": {
+      "main": [
+        [
+          {
+            "node": "Build System Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build System Prompt": {
+      "main": [
+        [
+          {
+            "node": "Call Claude",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Claude": {
+      "main": [
+        [
+          {
+            "node": "Extract Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Response": {
+      "main": [
+        [
+          {
+            "node": "Send to Discord",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-12T00:00:00.000Z",
+  "versionId": "2.0"
+}

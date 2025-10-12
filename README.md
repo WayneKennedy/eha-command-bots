@@ -123,9 +123,8 @@ Additional Lt. Commander positions may be filled for:
 │   ├── Dockerfile                       # Docker container config
 │   └── README.md                        # Bot documentation
 ├── n8n-workflows/                       # n8n workflow definitions
-│   ├── general-vance-v1.114.json        # Gen. Vance workflow
-│   └── officers/
-│       └── fleet-commander.json         # Legacy workflow
+│   ├── generic-officer-workflow.json    # Generic workflow for all officers (v2.0)
+│   └── general-vance-v1.114.json        # Legacy hardcoded workflow (deprecated)
 ├── database/                            # Database schema
 │   ├── schema.sql                       # Main schema (9 tables)
 │   ├── seed-data.sql                    # Initial data
@@ -136,6 +135,8 @@ Additional Lt. Commander positions may be filled for:
 │   ├── CONFIGURATION-STRATEGY.md        # YAML + database approach
 │   ├── KNOWLEDGE-BASE.md                # Knowledge base system
 │   ├── KNOWLEDGE-BASE-SOURCES.md        # Data sources & updates
+│   ├── N8N-WORKFLOW-GUIDE.md            # n8n workflow documentation
+│   ├── N8N-DEPLOYMENT.md                # n8n deployment guide
 │   ├── REFACTOR-PROPOSAL.md             # Design proposal
 │   ├── DESIGN-SUMMARY.md                # Complete design overview
 │   ├── VPS-SETUP-HOSTINGER.md           # Production VPS setup
@@ -284,11 +285,11 @@ sqlite3 eha_command.db < schema.sql
 sqlite3 eha_command.db < seed-data.sql
 ```
 
-5. Import n8n workflows:
+5. Import n8n workflow:
 ```bash
-# Import workflow JSON files into your local n8n instance
-# Start with n8n-workflows/officers/commander.json
-# See docs/SETUP.md for detailed instructions
+# Import the generic workflow into your n8n instance
+# Use n8n-workflows/generic-officer-workflow.json
+# See docs/N8N-DEPLOYMENT.md for detailed instructions
 ```
 
 6. Start the Discord bot:
