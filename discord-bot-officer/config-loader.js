@@ -12,7 +12,11 @@ async function loadOfficerConfig() {
   console.log(`🔧 Loading configuration for officer: ${officerId}`);
 
   // 1. Load officer YAML configuration
-  const officerConfigPath = path.join(__dirname, '..', 'officers', `${officerId}.yml`);
+  // In Docker: __dirname is /app, officers are mounted at /app/officers
+  // In local dev: __dirname is discord-bot-officer/, officers are at ../officers
+  const officerConfigPath = fs.existsSync(path.join(__dirname, 'officers'))
+    ? path.join(__dirname, 'officers', `${officerId}.yml`)
+    : path.join(__dirname, '..', 'officers', `${officerId}.yml`);
 
   if (!fs.existsSync(officerConfigPath)) {
     throw new Error(`Officer configuration not found: ${officerConfigPath}`);
@@ -25,8 +29,13 @@ async function loadOfficerConfig() {
   const knowledgeBase = {};
 
   if (officerConfig.knowledge_base && officerConfig.knowledge_base.files) {
+    // Determine knowledge-base path (Docker vs local dev)
+    const kbBasePath = fs.existsSync(path.join(__dirname, 'knowledge-base'))
+      ? path.join(__dirname, 'knowledge-base')
+      : path.join(__dirname, '..', 'knowledge-base');
+
     for (const kbFile of officerConfig.knowledge_base.files) {
-      const kbPath = path.join(__dirname, '..', 'knowledge-base', kbFile);
+      const kbPath = path.join(kbBasePath, kbFile);
 
       if (fs.existsSync(kbPath)) {
         const kbName = kbFile.replace('.yml', '').replace('.yaml', '');
