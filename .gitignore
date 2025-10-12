@@ -32,6 +32,9 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
+# Claude Code configuration (user-specific)
+.claude/
+
 # n8n local data (if running locally)
 .n8n/
 

@@ -105,55 +105,52 @@ Additional Lt. Commander positions may be filled for:
 /eha-command-bots
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml (GitHub Actions CI/CD)
-├── n8n-workflows/
-│   ├── officers/
-│   │   ├── fleet-commander.json (General - High Command)
-│   │   ├── logistics-operations.json (Lt. Col - Nexus)
-│   │   ├── tactical-operations.json (Lt. Col - Morozov)
-│   │   ├── flight-operations.json (Lt. Col - VoidWalkers)
-│   │   ├── intelligence-officer.json (Lt. Col - Staff)
-│   │   └── communications-officer.json (Major - Staff)
-│   ├── story/
-│   │   ├── arc-generator.json
-│   │   ├── mission-creator.json
-│   │   └── event-trigger.json
-│   └── shared/
-│       ├── discord-sender.json
-│       └── state-manager.json
-├── discord-bot-general-vance/
-│   ├── index.js (Discord bot for Gen. Vance)
-│   ├── config.js
-│   ├── package.json
-│   └── Dockerfile
+│       └── deploy.yml                   # GitHub Actions CI/CD
+├── officers/                            # Officer YAML configurations
+│   ├── officer-config-schema.md         # Configuration schema
+│   ├── vance.yml                        # Gen. Vance (Fleet Commander)
+│   └── morrison.yml                     # Lt. Col. Morrison (Logistics)
+├── knowledge-base/                      # Star Citizen universe canon
+│   ├── star-citizen-universe.yml        # Systems, locations, ships
+│   ├── eha-organization.yml             # EHA structure, story arcs
+│   ├── story-examples-nyx-buildup.md    # Nyx narrative examples
+│   ├── README.md                        # Knowledge base guide
+│   └── UPDATE-LOG.md                    # Change history
+├── discord-bot-officer/                 # Generic configurable Discord bot
+│   ├── index.js                         # Main bot logic
+│   ├── config-loader.js                 # YAML + knowledge base loader
+│   ├── package.json                     # Dependencies
+│   ├── Dockerfile                       # Docker container config
+│   └── README.md                        # Bot documentation
+├── n8n-workflows/                       # n8n workflow definitions
+│   ├── general-vance-v1.114.json        # Gen. Vance workflow
+│   └── officers/
+│       └── fleet-commander.json         # Legacy workflow
+├── database/                            # Database schema
+│   ├── schema.sql                       # Main schema (9 tables)
+│   ├── seed-data.sql                    # Initial data
+│   └── migrations/
+│       └── 001_add_officer_configs.sql  # Officer config tables
+├── docs/                                # Documentation
+│   ├── ARCHITECTURE.md                  # System architecture
+│   ├── CONFIGURATION-STRATEGY.md        # YAML + database approach
+│   ├── KNOWLEDGE-BASE.md                # Knowledge base system
+│   ├── KNOWLEDGE-BASE-SOURCES.md        # Data sources & updates
+│   ├── REFACTOR-PROPOSAL.md             # Design proposal
+│   ├── DESIGN-SUMMARY.md                # Complete design overview
+│   ├── VPS-SETUP-HOSTINGER.md           # Production VPS setup
+│   ├── DISCORD-BOT-SETUP-WSL.md         # Local development
+│   └── EHA-*.md/txt                     # EHA lore documents
 ├── prompts/
-│   ├── officer-personalities/
-│   │   ├── fleet-commander.md (General Vance)
-│   │   ├── logistics-operations.md (Lt. Col Morrison)
-│   │   ├── tactical-operations.md (Lt. Col Van Der Merwe)
-│   │   ├── flight-operations.md (Lt. Col Reeves)
-│   │   ├── intelligence-officer.md (Lt. Col Singh)
-│   │   └── communications-officer.md (Major Chen)
-│   ├── story-generation/
-│   │   ├── arc-template.md
-│   │   └── mission-template.md
-│   └── system-prompts/
-├── database/
-│   ├── schema.sql
-│   └── seed-data.sql
-├── docs/
-│   ├── VPS-SETUP-HOSTINGER.md (Production VPS setup)
-│   ├── DISCORD-BOT-SETUP-WSL.md (Local development)
-│   ├── DISCORD-BOT-SETUP-SIMPLIFIED.md
-│   ├── EHA-HISTORY.md
-│   ├── EHA-HISTORY-RSI-FORMAT.txt
-│   ├── EHA-MANIFESTO-RSI-FORMAT.txt
-│   └── EHA-CHARTER-RSI-FORMAT.txt
+│   └── officer-personalities/           # Reference docs (markdown)
+│       ├── fleet-commander.md           # Detailed personality docs
+│       ├── logistics-operations.md      # (useful for creating YAML)
+│       └── ...
 ├── scripts/
-│   └── deploy.sh (Manual deployment script)
-├── docker-compose.yml (Production stack)
-├── DEPLOYMENT.md (Deployment guide)
-└── .env.example
+│   └── deploy.sh                        # Manual deployment script
+├── docker-compose.yml                   # Production Docker stack
+├── DEPLOYMENT.md                        # Deployment guide
+└── .env.example                         # Environment template
 ```
 
 ## Current Status
@@ -270,7 +267,7 @@ cd eha-command-bots
 
 2. Install Discord bot dependencies:
 ```bash
-cd discord-bot
+cd discord-bot-officer
 npm install
 ```
 
@@ -296,8 +293,8 @@ sqlite3 eha_command.db < seed-data.sql
 
 6. Start the Discord bot:
 ```bash
-cd discord-bot
-npm start
+cd discord-bot-officer
+OFFICER_ID=vance npm start
 ```
 
 ### n8n Development Workflow
@@ -359,7 +356,7 @@ Each AI officer has a complete personality definition including:
 
 The AI officers serve the real EHA commanders (Atlay, Hunter, and future VoidWalkers commander) and help maintain immersive gameplay through mission briefings, story progression, and operational support.
 
-See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed definitions of all 6 AI officers.
+Officer personalities are defined in [officers/](officers/) YAML configuration files. See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed reference documentation.
 
 ## Contributing
 
