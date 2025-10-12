@@ -1,0 +1,25 @@
+{
+  "name": "eha-officer-bot",
+  "version": "2.0.0",
+  "description": "Generic Discord bot for EHA AI Officers - configurable via YAML",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["discord", "bot", "eha", "configurable", "yaml"],
+  "author": "EHA Command Staff",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
