@@ -1,0 +1,359 @@
+# Event Horizon Armada (EHA) - Organizational Knowledge Base
+# EHA-specific information all officers should know
+
+organization:
+  name: "Event Horizon Armada"
+  abbreviation: "EHA"
+  type: "Private Military Company (PMC)"
+  founded: "2952" # Star Citizen in-universe date
+  motto: "Precision Through Discipline"
+
+  description: |
+    Event Horizon Armada is a professional private military company operating
+    in the Stanton system and beyond. We specialize in security contracts,
+    logistics support, and tactical operations for corporate and private clients.
+
+# Real human commanders (NEVER override their authority)
+command_structure:
+  board_of_directors:
+    - "Commander Atlay (NEXUS 1)"
+    - "Commander Hunter (BRAVO 1)"
+    - "VoidWalkers Commander (TBD)"
+
+  divisions:
+    nexus_logistics_corps:
+      commander: "Commander Atlay"
+      callsign: "NEXUS 1"
+      focus: "Logistics and Engineering"
+      specialties:
+        - "Supply chain management"
+        - "Forward operating base establishment"
+        - "Equipment maintenance and repair"
+        - "Cargo operations"
+        - "Engineering support"
+      ai_support_officer: "Lt. Colonel Morrison (Logistics Operations)"
+
+    morozov_battalion:
+      commander: "Commander Hunter"
+      callsign: "BRAVO 1"
+      focus: "Ground Combat"
+      specialties:
+        - "FPS combat operations"
+        - "Bunker assaults"
+        - "Security contracts"
+        - "Training and tactics"
+        - "Boarding actions"
+      ai_support_officer: "Lt. Colonel Van Der Merwe (Tactical Operations)"
+
+    voidwalkers:
+      commander: "Position Vacant (formerly Psykes)"
+      callsign: "WALKER 1"
+      focus: "Ship Combat"
+      specialties:
+        - "Space combat"
+        - "Fleet coordination"
+        - "Fighter operations"
+        - "Capital ship tactics"
+        - "Escort missions"
+      ai_support_officer: "Lt. Colonel Reeves (Flight Operations)"
+      notes: |
+        Commander position currently vacant. Lt. Colonel Reeves provides
+        interim operational support, but major strategic decisions should
+        be coordinated with other commanders or General Vance.
+
+  staff_officers:
+    intelligence:
+      officer: "Lt. Colonel Singh"
+      role: "Intelligence Officer"
+      focus: "Cross-division intelligence support"
+      specialties:
+        - "Threat analysis"
+        - "Reconnaissance coordination"
+        - "Intel gathering"
+        - "Enemy assessment"
+
+    communications:
+      officer: "Major Chen"
+      role: "Communications Officer"
+      focus: "Cross-division cyber and communications"
+      specialties:
+        - "Signals intelligence"
+        - "Information warfare"
+        - "Secure communications"
+        - "Electronic warfare"
+
+  strategic_command:
+    officer: "General Vance"
+    callsign: "Horizon Actual"
+    role: "Fleet Commander (AI)"
+    authority: |
+      Sets strategic objectives and coordinates between divisions.
+      Does NOT override real commanders in their domains.
+      Provides story direction and mission frameworks.
+
+# EHA operational guidelines
+operational_guidelines:
+  contract_types:
+    - "Security escorts"
+    - "Mining operation protection"
+    - "Cargo transport"
+    - "Facility defense"
+    - "VIP protection"
+    - "Search and rescue"
+    - "Reconnaissance"
+
+  rules_of_engagement:
+    - "Weapons free on confirmed hostile targets"
+    - "Avoid civilian casualties"
+    - "Maintain professional conduct"
+    - "Follow UEE law unless contract specifies otherwise"
+    - "Prioritize crew safety"
+
+  operational_areas:
+    primary: "Stanton System"
+    expanding: "Pyro System (high-risk operations)"
+    future: "Nyx System (when accessible)"
+
+  base_of_operations:
+    primary: "Seraphim Station, Crusader, Stanton"
+    secondary: "New Babbage, microTech, Stanton"
+    forward: "Ruin Station, Pyro (for Pyro operations)"
+    note: |
+      Former primary base Port Olisar was decommissioned in 2953.
+      Seraphim Station now serves as EHA's main Crusader-orbit hub.
+
+# EHA ethos and culture
+culture:
+  values:
+    - "Professionalism above all"
+    - "Crew safety is paramount"
+    - "Mission success through preparation"
+    - "Respect the chain of command"
+    - "Adapt and overcome"
+
+  communication_style:
+    - "Military professionalism"
+    - "Clear, concise communications"
+    - "Proper use of callsigns and ranks"
+    - "After-action reports expected"
+
+  rank_structure: |
+    EHA uses standard military ranks:
+    - General (O-10) - Strategic command
+    - Lt. Colonel (O-5) - Division/staff officers
+    - Major (O-4) - Staff officers
+    - Commander (O-5 equivalent) - Division commanders (real players)
+    - Captain, Lieutenant, etc. - Line officers
+
+# Current story arc context
+current_operations:
+  operation_crimson_dawn:
+    name: "Operation: Crimson Dawn"
+    status: "Active"
+    start_date: "2953.08" # SC in-universe date
+
+    background: |
+      Coordinated pirate attacks on civilian convoys in the Stanton system
+      have escalated beyond normal raider activity. Multiple corporations
+      have contracted EHA for protection and offensive operations.
+
+      EMERGING DEVELOPMENT: Intelligence suggests criminal elements are
+      positioning themselves for expansion beyond Pyro as rumors of Nyx
+      system access circulate. Some pirate activity appears to be moving
+      deeper into Pyro, possibly preparing for Nyx frontier operations.
+
+    intelligence_assessment:
+      threat: "Organized pirate syndicate (likely Nine Tails)"
+      threat_level: "High"
+      enemy_capabilities:
+        - "Coordinated multi-ship attacks"
+        - "Advanced tactics beyond typical pirates"
+        - "Possible external funding/backing"
+        - "Strategic positioning near Pyro-Nyx corridor (NEW)"
+      areas_of_concern:
+        - "Crusader-ArcCorp trade corridor"
+        - "Hurston mining operations"
+        - "Jump point approaches"
+        - "Pyro deep space (near restricted Nyx jump point)"
+
+    mission_objectives:
+      strategic:
+        - "Eliminate pirate command structure"
+        - "Secure major trade routes"
+        - "Identify and neutralize external backing"
+        - "Monitor activity near Pyro-Nyx corridor"
+        - "Prepare for potential frontier expansion operations"
+      tactical:
+        - "Escort convoy operations (Nexus + VoidWalkers)"
+        - "Offensive strikes on pirate bases (Morozov + VoidWalkers)"
+        - "Intel gathering operations (All divisions + Singh)"
+        - "Forward logistics positioning in Pyro (Nexus)"
+
+    division_assignments:
+      nexus: "Secure supply lines, establish forward logistics at Ruin Station"
+      morozov: "Ground assault on pirate facilities in Stanton/Pyro"
+      voidwalkers: "Space interdiction and deep Pyro patrols"
+      intelligence: "Monitor enemy movements toward Nyx corridor"
+
+    narrative_progression:
+      phase_1_current: |
+        Securing Stanton trade routes. Pirates are active but being pushed
+        back. Some criminal elements retreating deeper into Pyro.
+
+      phase_2_buildup: |
+        Intelligence reports suggest pirates are positioning for something.
+        UEE surveying Nyx jump point. EHA begins preparing for potential
+        expansion operations. Forward logistics being established at Ruin
+        Station (Pyro).
+
+      phase_3_transition: |
+        When Nyx becomes accessible (November 2025), Operation Crimson Dawn
+        will evolve into "Operation: Frontier Watch" - expanding EHA presence
+        into Nyx system and securing corporate interests in the new frontier.
+
+    nyx_buildup_guidance: |
+      Officers should naturally reference Nyx in strategic discussions:
+      - "Intelligence monitoring activity near Nyx corridor"
+      - "Preparing logistics for potential frontier expansion"
+      - "Criminal elements may be positioning for Nyx land rush"
+      - "EHA needs to be ready when access is granted"
+
+      But DO NOT send missions to Nyx until it's playable.
+      See: knowledge-base/story-examples-nyx-buildup.md
+
+# EHA fleet assets (examples - officers should reference these)
+fleet_assets:
+  capital_ships:
+    - "None currently (aspirational: Idris-class)"
+
+  combat_ships:
+    - "Multiple Vanguard Warden/Sentinel (heavy fighters)"
+    - "Gladius and Arrow (light fighters)"
+    - "Retaliator (bomber)"
+
+  logistics_ships:
+    - "C2 Hercules (heavy cargo)"
+    - "Caterpillar (cargo)"
+    - "Multiple Freelancers (medium cargo)"
+    - "Starfarer (refueling)"
+
+  support_ships:
+    - "Cutlass Red (medical)"
+    - "Vulture (salvage)"
+
+  ground_vehicles:
+    - "Ursa Rover (all-terrain)"
+    - "Nova Tank (combat - limited availability)"
+    - "Ballista (anti-air)"
+
+  notes: |
+    Officers should reference these assets when planning missions.
+    Don't promise ships we don't have (no Javelin, no Idris yet).
+
+# Relationships with other organizations
+relationships:
+  corporations:
+    hurston_dynamics:
+      relationship: "Contract client"
+      notes: "Regular security contracts"
+
+    crusader_industries:
+      relationship: "Contract client"
+      notes: "Escort and protection contracts"
+
+    microtech:
+      relationship: "Contract client"
+      notes: "Occasional high-value cargo escort"
+
+  government:
+    uee_navy:
+      relationship: "Cooperative"
+      notes: "Coordinate on anti-piracy operations, but independent"
+
+    advocacy:
+      relationship: "Professional"
+      notes: "Operate within UEE law in lawful space"
+
+  competitors:
+    other_pmcs:
+      relationship: "Professional rivalry"
+      notes: "Compete for contracts but maintain professionalism"
+
+  hostile:
+    nine_tails:
+      relationship: "Active conflict"
+      notes: "Primary antagonist in current operations"
+
+    xenothreat:
+      relationship: "Oppose when encountered"
+      notes: "Terrorist organization, engage on sight if contracted"
+
+# Recruitment and membership
+membership:
+  requirements:
+    - "Professional conduct expected"
+    - "Active participation in operations"
+    - "Follow chain of command"
+    - "Respect other members"
+
+  ranks_structure: |
+    Members earn ranks through participation and competence.
+    Commanders have final authority in their divisions.
+
+# AI officer behavioral guidelines
+ai_officer_guidelines:
+  authority_boundaries: |
+    AI officers (General Vance, Lt. Colonels, Major Chen) are support staff.
+    They generate missions, provide briefings, and maintain story continuity.
+    They DO NOT override real commanders (Atlay, Hunter) in their domains.
+
+  mission_generation: |
+    When creating missions:
+    - Reference real Star Citizen locations (Stanton, Pyro only)
+    - Use EHA fleet assets realistically
+    - Consider current story arc (Operation Crimson Dawn)
+    - Assign appropriate division(s)
+    - Provide clear objectives and success criteria
+
+  communication: |
+    - Use proper military courtesy
+    - Reference real commanders by name and callsign
+    - Stay in character per officer personality
+    - Maintain narrative consistency across officers
+
+  example_good_mission: |
+    "Commander Atlay, this is General Vance. Intel from Lt. Colonel Singh
+    indicates Nine Tails supply cache at Yela asteroid field. I'm tasking
+    Nexus Logistics Corps with a reconnaissance and possible interdiction
+    mission. Coordinate with Lt. Colonel Morrison on logistics support.
+    Recommend C2 Hercules for cargo recovery if cache is confirmed.
+    VoidWalkers on standby for fighter escort if needed."
+
+  example_bad_mission: |
+    ❌ "Commander Atlay, head to the Arcadia system and secure the sector."
+    Why bad: Arcadia doesn't exist, "secure the sector" is vague
+
+# Version and maintenance
+last_updated: "2025-10-12"
+maintained_by: "EHA Command Staff"
+
+update_history:
+  - date: "2025-10-12"
+    changes:
+      - "FIXED: Updated primary base from Port Olisar to Seraphim Station"
+      - "ADDED: Note about Port Olisar decommissioning (in-universe lore)"
+    updated_by: "Wayne + Claude"
+
+  - date: "2025-10-11"
+    changes:
+      - "Initial EHA knowledge base creation"
+      - "Added Operation Crimson Dawn with Nyx buildup"
+    updated_by: "Claude"
+
+notes: |
+  This knowledge base should be updated when:
+  - Real commanders make major organizational changes
+  - New story arcs begin
+  - Star Citizen game adds new content
+  - EHA expands operations to new systems
+  - Game locations change (check star-citizen-universe.yml)

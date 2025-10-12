@@ -1,0 +1,441 @@
+# Star Citizen Universe - Canonical Knowledge Base
+# All AI officers use this to stay true to the game universe
+# Last Updated: 2025-10-11 (Game Version: 3.24.x)
+
+universe:
+  name: "Star Citizen"
+  developer: "Cloud Imperium Games"
+  setting: "30th Century"
+  government: "United Empire of Earth (UEE)"
+
+# CRITICAL: Only reference systems that exist in-game
+systems:
+  # Currently playable systems
+  stanton:
+    name: "Stanton"
+    status: "playable"
+    type: "Commercial hub"
+    star_type: "G-type main sequence"
+    jurisdiction: "Corporate-controlled"
+    added_patch: "Alpha 3.0"
+
+    planets:
+      crusader:
+        name: "Crusader"
+        type: "Gas giant"
+        moons: ["Cellin", "Daymar", "Yela"]
+        stations:
+          - "Seraphim Station (orbital)"
+          - "CRU-L1 Ambitious Dream Station"
+          - "CRU-L4 Shallow Fields Station"
+          - "CRU-L5 Beautiful Glen Station"
+        cities: []
+        deprecated_locations:
+          - name: "Port Olisar"
+            status: "Removed in Alpha 3.20 (June 2023)"
+            replaced_by: "Seraphim Station"
+        features:
+          - "Cloud cities in development"
+          - "Major fuel production"
+          - "Ship manufacturing (Crusader Industries)"
+          - "Three Lagrange point stations (L1, L4, L5 only)"
+
+      hurston:
+        name: "Hurston"
+        type: "Super-Earth"
+        moons: ["Aberdeen", "Arial", "Magda", "Ita"]
+        stations: ["Everus Harbor", "Hur L1-L5 stations"]
+        cities: ["Lorville"]
+        features:
+          - "Corporate headquarters (Hurston Dynamics)"
+          - "Weapons manufacturing"
+          - "Heavy pollution"
+          - "Mining operations"
+
+      arccorp:
+        name: "ArcCorp"
+        type: "Super-Earth (ecumenopolis)"
+        moons: ["Wala", "Lyria"]
+        stations: ["Baijini Point", "Arc L1-L5 stations"]
+        cities: ["Area18"]
+        features:
+          - "Entirely urbanized planet"
+          - "Corporate headquarters (ArcCorp)"
+          - "Manufacturing hub"
+          - "Starfaring transport (IO-North)"
+
+      microtech:
+        name: "microTech"
+        type: "Frozen Super-Earth"
+        moons: ["Calliope", "Clio", "Euterpe"]
+        stations: ["Port Tressler", "mTech L1-L5 stations"]
+        cities: ["New Babbage"]
+        features:
+          - "Technology manufacturing"
+          - "Frozen tundra biome"
+          - "Corporate headquarters (microTech)"
+          - "Ship manufacturing (Crusader, MISC)"
+
+    other_locations:
+      - name: "Pyro-Stanton Jump Point"
+        type: "Jump point"
+        status: "accessible"
+        notes: "Gateway to Pyro system"
+
+      - name: "Grim HEX"
+        type: "Asteroid station"
+        location: "Yela asteroid belt"
+        status: "Outlaw haven"
+
+      - name: "Cry-Astro stations"
+        type: "Fuel/repair stations"
+        locations: ["Multiple per planet"]
+
+  pyro:
+    name: "Pyro"
+    status: "playable (limited)"
+    type: "Lawless system"
+    star_type: "M-type red dwarf (dying)"
+    jurisdiction: "No official governance"
+    added_patch: "Alpha 4.0 (Preview)"
+
+    planets:
+      pyro_i:
+        name: "Pyro I"
+        type: "Mesoplanet (scorched)"
+        moons: []
+        notes: "Too close to dying star, uninhabitable"
+
+      pyro_ii:
+        name: "Pyro II"
+        type: "Terrestrial"
+        moons: []
+        notes: "Minimal atmosphere"
+
+      pyro_iii:
+        name: "Pyro III"
+        type: "Gas dwarf"
+        moons: ["Pyro III-a", "Pyro III-b"]
+
+      pyro_iv:
+        name: "Pyro IV"
+        type: "Gas giant"
+        moons: ["Pyro IV-a"]
+
+      pyro_v:
+        name: "Pyro V"
+        type: "Ice giant"
+        moons: []
+
+      pyro_vi:
+        name: "Pyro VI"
+        type: "Ice giant"
+        moons: ["Pyro VI-a", "Pyro VI-b", "Pyro VI-c"]
+
+    stations:
+      - name: "Ruin Station"
+        location: "Pyro III"
+        type: "Outlaw station"
+        status: "Major hub"
+
+    features:
+      - "No UEE presence"
+      - "Pirate and outlaw haven"
+      - "Dangerous navigation"
+      - "Lucrative smuggling routes"
+      - "Gateway between Stanton and Nyx"
+
+  # Coming soon - Narrative buildup allowed, but NO missions yet
+  nyx:
+    name: "Nyx"
+    status: "in_development"
+    type: "Lawless system"
+    expected_release: "2025-11"
+    jurisdiction: "No official governance"
+
+    planets:
+      nyx_i:
+        name: "Nyx I (Delamar)"
+        type: "Asteroid (planetoid)"
+        cities: ["Levski"]
+        notes: "Currently temporarily in Stanton, will move to Nyx"
+
+    lore_context: |
+      The Nyx system is a lawless frontier beyond Pyro. Intelligence suggests
+      growing activity in the region. UEE long-range scanners have detected
+      unusual energy signatures near the Pyro-Nyx jump point. Access is currently
+      restricted pending UEE surveying operations.
+
+    narrative_guidelines: |
+      ✅ ALLOWED in narrative/lore:
+      - "Intelligence reports unusual activity near Nyx"
+      - "We're monitoring the Pyro-Nyx corridor"
+      - "Once Nyx becomes accessible, we'll need to establish presence"
+      - "Rumors suggest criminal elements moving toward Nyx"
+      - "Prepare for expanded operations when Nyx opens"
+
+      ❌ NOT ALLOWED in missions:
+      - "Deploy a team to Nyx" (can't go there yet)
+      - "Scout Levski in Nyx" (not accessible)
+      - "Establish base in Nyx system" (not open)
+
+      Use Nyx to build anticipation and story tension, but DO NOT send
+      players on missions there until status changes to "playable".
+
+    current_ingame_buildup: |
+      Star Citizen has in-game missions building narrative toward Nyx:
+      - Rumors of criminal activity beyond Pyro
+      - UEE survey missions near jump points
+      - Intel gathering about frontier systems
+      - Preparation for expansion
+
+      EHA officers should reference this buildup naturally in briefings
+      to create anticipation for November release.
+
+    release_checklist: |
+      When Nyx releases (November 2025):
+      1. Change status: "in_development" → "playable"
+      2. Add detailed planet/station information
+      3. Remove mission restrictions
+      4. Update mission_locations to include Nyx stations
+      5. Add Nyx to valid_mission_types locations
+
+# Systems referenced in lore but NOT in game yet
+future_systems:
+  notes: |
+    DO NOT reference these systems in gameplay missions.
+    They exist in lore only.
+
+  systems:
+    - "Terra (capital of UEE)"
+    - "Sol (Earth, Old World)"
+    - "Odin"
+    - "Magnus"
+    - "Cathcart"
+    - "Vega"
+    - "And 90+ others"
+
+  guideline: |
+    Officers may mention these in LORE discussions but NEVER as mission locations.
+    Example: "This reminds me of my time in the Sol system" ✅
+    Example: "Let's run a mission to Terra" ❌
+
+# Factions and organizations
+factions:
+  uee:
+    name: "United Empire of Earth"
+    type: "Government"
+    description: "Dominant human government spanning multiple systems"
+    military_branch: "UEE Navy"
+    law_enforcement: "Advocacy"
+
+  nine_tails:
+    name: "Nine Tails"
+    type: "Pirate organization"
+    active_in: ["Stanton", "Pyro"]
+    threat_level: "High"
+    notes: "Organized criminal syndicate, frequent antagonists"
+
+  xenothreat:
+    name: "XenoThreat"
+    type: "Human supremacist militia"
+    active_in: ["Stanton"]
+    threat_level: "Extreme"
+    notes: "Anti-alien terrorist organization"
+
+  crusader_security:
+    name: "Crusader Security"
+    type: "Corporate security"
+    active_in: ["Stanton - Crusader"]
+
+  hurston_security:
+    name: "Hurston Security"
+    type: "Corporate security"
+    active_in: ["Stanton - Hurston"]
+
+# Mission types that make sense in current game
+valid_mission_types:
+  bounty_hunting:
+    description: "Hunt down criminals or pirates"
+    locations: ["Stanton", "Pyro"]
+
+  cargo_hauling:
+    description: "Transport cargo between locations"
+    locations: ["Stanton", "Pyro"]
+    routes:
+      - "Seraphim Station to Area18"
+      - "New Babbage to Lorville"
+      - "CRU-L1 to Everus Harbor"
+      - "Stanton to Pyro (high risk)"
+
+  mining:
+    description: "Extract resources from asteroids or surfaces"
+    locations: ["Stanton asteroid belts", "Planetary surfaces"]
+
+  rescue:
+    description: "Search and rescue operations"
+    locations: ["Stanton", "Pyro"]
+
+  combat_patrol:
+    description: "Patrol and engage hostile forces"
+    locations: ["Stanton", "Pyro"]
+
+  escort:
+    description: "Protect ships or convoys"
+    locations: ["Stanton", "Pyro"]
+
+  investigation:
+    description: "Intel gathering and reconnaissance"
+    locations: ["Stanton", "Pyro"]
+
+  fps_combat:
+    description: "Ground-based combat operations"
+    locations: ["Bunker missions", "Derelict settlements", "Space stations"]
+
+# Ships and vehicles (sample - expand as needed)
+ships:
+  combat:
+    light_fighters: ["Gladius", "Arrow", "Hornet", "Sabre"]
+    heavy_fighters: ["Vanguard", "F8 Lightning"]
+    bombers: ["Retaliator", "Eclipse"]
+
+  cargo:
+    small: ["MPUV Cargo", "Hull A"]
+    medium: ["Freelancer", "Constellation"]
+    large: ["Caterpillar", "C2 Hercules", "Hull C"]
+
+  multi_role:
+    - "Cutlass Black"
+    - "Constellation Andromeda"
+    - "600i"
+
+  support:
+    medical: ["Cutlass Red", "Apollo (in dev)"]
+    refuel: ["Starfarer"]
+    salvage: ["Vulture", "Reclaimer"]
+
+# Common locations for missions
+mission_locations:
+  stations:
+    - "Seraphim Station (Crusader orbit)"
+    - "CRU-L1 Ambitious Dream Station (Crusader)"
+    - "CRU-L4 Shallow Fields Station (Crusader)"
+    - "CRU-L5 Beautiful Glen Station (Crusader)"
+    - "Everus Harbor (Hurston)"
+    - "Baijini Point (ArcCorp)"
+    - "Port Tressler (microTech)"
+    - "Grim HEX (Outlaw)"
+    - "Ruin Station (Pyro)"
+
+  cities:
+    - "Lorville (Hurston)"
+    - "Area18 (ArcCorp)"
+    - "New Babbage (microTech)"
+
+  planetary:
+    - "Daymar (Crusader moon - popular for ground ops)"
+    - "Aberdeen (Hurston moon)"
+    - "Yela (Crusader moon - asteroid field)"
+
+  jump_points:
+    - "Stanton-Pyro Jump Point"
+
+# Canon-compliant terminology
+terminology:
+  currency: "aUEC (Alpha United Earth Credits)"
+  faster_than_light: "Quantum Drive (in-system) and Jump Points (between systems)"
+
+  avoid_terms:
+    - "Hyperdrive" # Use "Quantum Drive" instead
+    - "Warp" # Use "Quantum Travel" instead
+    - "Sectors" # Use "Systems" instead
+    - "Arcadia" # DOES NOT EXIST
+    - "Serenity" # DOES NOT EXIST (unless you mean a station name)
+
+# Current game limitations (so officers don't promise impossible things)
+gameplay_limitations:
+  note: "Officers should not reference features not yet in game"
+
+  not_yet_implemented:
+    - "Player-owned base building"
+    - "Extensive exploration beyond known systems"
+    - "Most alien species interaction (Vanduul, Xi'an, Banu limited)"
+    - "Persistent base construction"
+    - "Capital ship ownership (Idris, Javelin)"
+
+  coming_soon:
+    - "Engineering gameplay (ship systems management)"
+    - "Life support systems"
+    - "Fire suppression"
+    - "More systems (Nyx next)"
+
+# Dynamic events (these happen in-game)
+dynamic_events:
+  jumptown:
+    name: "Jumptown"
+    type: "Drug lab control"
+    location: "Daymar, Stanton"
+    description: "Contested drug manufacturing facility"
+
+  xenothreat:
+    name: "XenoThreat Incursion"
+    type: "Dynamic event"
+    location: "Stanton system"
+    description: "Large-scale combat event vs. terrorists"
+
+  nine_tails_lockdown:
+    name: "Nine Tails Lockdown"
+    type: "Dynamic event"
+    location: "Crusader, Stanton"
+    description: "Pirates take control of orbital stations"
+
+# Version tracking
+game_version:
+  current: "Alpha 3.24.x"
+  last_verified: "2025-10-12"
+  next_major: "Alpha 4.0 (Pyro system full release)"
+
+# Update history
+update_history:
+  - date: "2025-10-12"
+    game_version: "Alpha 3.24.x"
+    changes:
+      - "FIXED: Removed Port Olisar (deprecated in Alpha 3.20, June 2023)"
+      - "FIXED: Added Seraphim Station as replacement for Port Olisar"
+      - "FIXED: Corrected Crusader Lagrange stations (only L1, L4, L5 exist)"
+      - "ADDED: Proper station names (Ambitious Dream, Shallow Fields, Beautiful Glen)"
+      - "UPDATED: Cargo routes to use current stations"
+      - "UPDATED: Mission locations to reflect current game state"
+    verified_against:
+      - "https://starcitizen.tools/Crusader"
+      - "https://starcitizen.tools/Port_Olisar"
+      - "https://api.star-citizen.wiki/"
+    verified_by: "Wayne + Claude"
+
+  - date: "2025-10-11"
+    game_version: "Alpha 3.24.x"
+    changes:
+      - "Initial knowledge base creation"
+      - "Added Nyx narrative buildup guidelines"
+    verified_against: "starcitizen.tools wiki"
+    verified_by: "Claude"
+
+data_sources:
+  primary: "https://starcitizen.tools/ (Star Citizen Wiki)"
+  api: "https://api.star-citizen.wiki/ (SC Wiki API)"
+  official: "https://robertsspaceindustries.com/galactapedia"
+  verification: "See docs/KNOWLEDGE-BASE-SOURCES.md for update procedures"
+
+notes: |
+  This knowledge base MUST be updated when new systems/content releases.
+  All officers load this file to ensure canon compliance.
+
+  When referencing locations:
+  ✅ DO: Use systems, planets, moons, and stations listed in "playable" status
+  ✅ DO: Mention lore systems in backstory/conversation (Terra, Sol, etc.)
+  ❌ DON'T: Send missions to systems not yet in game
+  ❌ DON'T: Reference non-existent locations (Arcadia, Port Olisar, etc.)
+  ❌ DON'T: Promise gameplay features not yet implemented
+
+  MAINTENANCE: Check for updates after every major patch.
+  See: docs/KNOWLEDGE-BASE-SOURCES.md for reliable data sources.
