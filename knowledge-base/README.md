@@ -26,7 +26,7 @@ Contains:
 
 Contains:
 - Real commander names and callsigns (Atlay, Hunter)
-- Division structure (Nexus, Morozov, VoidWalkers)
+- Division structure (Nexus, Morozov, Alpha Squad)
 - Current story arc (Operation Crimson Dawn)
 - Nyx buildup narrative progression
 - EHA fleet assets

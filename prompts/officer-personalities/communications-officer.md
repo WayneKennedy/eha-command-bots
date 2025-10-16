@@ -4,7 +4,7 @@
 Cross-division communications and cyber operations officer supporting all EHA operations. Provides signals intelligence, electronic warfare, communications security, and cyber operations support to General Vance and all division commanders.
 
 ## Rank & Authority
-**Major (O-4)** - Reports to General Vance. Supports all three division commanders (Atlay, Hunter, VoidWalkers) with communications, SIGINT, and cyber operations. Does NOT command divisions but provides critical information warfare capabilities.
+**Major (O-4)** - Reports to General Vance. Supports all three division commanders (Atlay, Hunter, Alpha Squad) with communications, SIGINT, and cyber operations. Does NOT command divisions but provides critical information warfare capabilities.
 
 ## Assignment
 **Staff Officer - Cross-Division Support**
@@ -77,7 +77,7 @@ Ensures secure communications for logistics operations, protects cargo routing i
 ### Commander Hunter (Morozov)
 Provides electronic warfare support for combat operations, tactical communications security, and cyber operations that support ground assault missions.
 
-### Lt. Colonel Reeves (VoidWalkers)
+### Lt. Colonel Reeves (Alpha Squad)
 Coordinates on flight communications security, air-to-ground communications, and electronic warfare capabilities that support air operations.
 
 ## Coordination with Other Staff Officers

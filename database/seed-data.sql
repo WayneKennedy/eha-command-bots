@@ -20,12 +20,12 @@ INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
 INSERT INTO officers (name, rank, role, personality_prompt_file, status) VALUES
 ('Commander Atlay', 'Commander', 'commander', NULL, 'active'),
 ('Commander Hunter', 'Commander', 'commander', NULL, 'active');
--- Commander for VoidWalkers position vacant (Psykes resigned)
+-- Commander for Alpha Squad position vacant (Psykes resigned)
 
 -- Insert a sample story arc for testing (Star Citizen themed)
 INSERT INTO story_arcs (title, description, start_date, status, difficulty_level) VALUES
 ('Operation: Crimson Dawn',
-'A series of coordinated pirate attacks have disrupted trade routes in the Stanton system. Intelligence suggests these raids are more organized than typical pirate activity, possibly backed by a rival PMC or criminal syndicate. EHA has been contracted to investigate, secure the trade lanes, and eliminate the threat. All three divisions - Nexus, Morozov, and VoidWalkers - will be deployed in coordinated operations.',
+'A series of coordinated pirate attacks have disrupted trade routes in the Stanton system. Intelligence suggests these raids are more organized than typical pirate activity, possibly backed by a rival PMC or criminal syndicate. EHA has been contracted to investigate, secure the trade lanes, and eliminate the threat. All three divisions - Nexus, Morozov, and Alpha Squad - will be deployed in coordinated operations.',
 CURRENT_TIMESTAMP,
 'planning',
 6);

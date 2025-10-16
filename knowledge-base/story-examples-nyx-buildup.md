@@ -54,7 +54,7 @@ to capitalize on this expansion.
 For now, maintain focus on current objectives. Commander Atlay, ensure
 logistics trains are prepared for potential long-range operations.
 Commander Hunter, Morozov Battalion should be ready for rapid deployment
-scenarios. Lt. Colonel Reeves, VoidWalkers need to be prepared for
+scenarios. Lt. Colonel Reeves, Alpha Squad need to be prepared for
 extended patrol routes.
 
 This is about preparation, not speculation. We stay sharp, we stay ready.

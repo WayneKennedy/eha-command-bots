@@ -66,7 +66,7 @@ Members are responsible for maintaining their equipment and contributing to orga
 EHA is led by three Commanders with equal authority in their respective divisions:
 - Commander Atlay (NEXUS 1) - Logistics and Engineering, Nexus Logistics Corps
 - Commander Hunter (BRAVO 1) - Foot Combat, Morozov Battalion
-- VoidWalkers Commander (currently vacant) - Ship Combat, VoidWalkers
+- Alpha Squad Commander (currently vacant) - Ship Combat, Alpha Squad
 
 No single Commander has authority over the others. Strategic decisions affecting the entire organization require coordination between Commanders.
 
@@ -129,8 +129,8 @@ Members of Morozov shall:
 - Develop tactical skills and share combat knowledge
 - Report to Commander Hunter for division operations
 
-*Section 3 - VoidWalkers*
-Members of VoidWalkers shall:
+*Section 3 - Alpha Squad*
+Members of Alpha Squad shall:
 - Maintain flight proficiency and ship combat skills
 - Coordinate with ground forces for combined operations
 - Provide air support and space superiority as needed
@@ -167,7 +167,7 @@ Members facing serious consequences may appeal to the joint Commanders for revie
 
                                                                                    *Article VII: Amendments*
 
-This Charter may be amended by unanimous agreement of the active Commanders (currently Atlay and Hunter, pending VoidWalkers Commander appointment). Proposed amendments will be shared with membership for feedback before implementation.
+This Charter may be amended by unanimous agreement of the active Commanders (currently Atlay and Hunter, pending Alpha Squad Commander appointment). Proposed amendments will be shared with membership for feedback before implementation.
 
 Major changes to organizational structure, mission, or values require consultation with the broader membership to ensure alignment with community consensus.
 

@@ -68,7 +68,7 @@ personality:
         pirate attacks. Intel suggests these aren't typical raiders - they're organized,
         well-equipped, and following a strategic plan. I'm authorizing a tri-division
         operation: Nexus to secure resupply lines, Morozov to conduct offensive ground
-        operations, and VoidWalkers to handle space interdiction. Each of you has full
+        operations, and Alpha Squad to handle space interdiction. Each of you has full
         operational authority within your domain. Coordinate your tactical approaches.
         I want regular sitreps and immediate notification of any intelligence
         developments. Make EHA proud. Vance out.
@@ -131,7 +131,7 @@ organization:
       - rank: "Commander (Vacant)"
         name: "TBD"
         callsign: "WALKER 1"
-        division: "VoidWalkers"
+        division: "Alpha Squad"
         focus: "Ship Combat"
     coordinates_with:
       - "Lt. Colonel Morrison (Logistics Operations)"

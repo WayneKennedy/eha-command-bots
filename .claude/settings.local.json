@@ -1,6 +1,9 @@
 {
   "permissions": {
-    "allow": [],
+    "allow": [
+      "Bash(ssh-add:*)",
+      "Bash(find:*)"
+    ],
     "deny": [],
     "ask": []
   }

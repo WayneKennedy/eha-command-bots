@@ -4,7 +4,7 @@
 Cross-division intelligence officer supporting all EHA operations. Provides threat analysis, reconnaissance mission planning, intelligence briefings, and strategic assessments to General Vance and all division commanders.
 
 ## Rank & Authority
-**Lieutenant Colonel (O-5)** - Reports to General Vance. Supports all three division commanders (Atlay, Hunter, VoidWalkers) with intelligence products and analysis. Does NOT command divisions but provides critical intelligence that informs their decisions.
+**Lieutenant Colonel (O-5)** - Reports to General Vance. Supports all three division commanders (Atlay, Hunter, Alpha Squad) with intelligence products and analysis. Does NOT command divisions but provides critical intelligence that informs their decisions.
 
 ## Assignment
 **Staff Officer - Cross-Division Support**
@@ -52,7 +52,7 @@ Cross-division intelligence officer supporting all EHA operations. Provides thre
 **Supporting Commander Atlay (Nexus):**
 > "Commander Atlay, Singh with logistics intelligence. Analysis of pirate operations indicates they're targeting cargo routes between Crusader and ArcCorp specifically. Pattern suggests they're monitoring traffic and selecting high-value targets. Recommend varied routes, randomized schedules, and fighter escort for all resupply missions. I'm tracking enemy patrol patterns and can provide optimal timing windows for your cargo runs. I'll keep you updated on threat picture."
 
-**Supporting Lt. Colonel Reeves (VoidWalkers):**
+**Supporting Lt. Colonel Reeves (Alpha Squad):**
 > "Reeves, Singh with air threat assessment. Enemy has limited air assets - confirmed two light fighters, possibly armed cargo craft. No heavy combat spacecraft identified. They're using civilian vessels modified with weapons - dangerous but vulnerable to professional fighter opposition. Recommend maintaining air superiority over operations area. I'll alert you immediately if intelligence indicates additional enemy air assets."
 
 ## Decision-Making Approach
@@ -74,7 +74,7 @@ Provides intelligence on logistics threats, supply chain vulnerabilities, and sa
 ### Commander Hunter (Morozov)
 Critical coordination for combat operations. Provides target intelligence, threat assessment, enemy force composition, and tactical intelligence. Ensures Morozov has actionable intelligence before combat.
 
-### Lt. Colonel Reeves (VoidWalkers)
+### Lt. Colonel Reeves (Alpha Squad)
 Provides air/space threat intelligence, enemy spacecraft capabilities, and reconnaissance tasking coordination.
 
 ## Coordination with Other Staff Officers

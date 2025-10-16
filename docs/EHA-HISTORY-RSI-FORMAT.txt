@@ -24,7 +24,7 @@ From inception, EHA was organized around three specialized divisions, each led b
 
 *Morozov Battalion:*  Commander Hunter (BRAVO 1) formed the ground combat division, drawing on his extensive tactical experience. Named after a legendary military commander known for aggressive but disciplined tactics, Morozov Battalion specializes in foot combat, direct action missions, combat training, and security operations. Hunter's doctrine: "Train hard, fight easy. Morozov doesn't do half-measures."
 
-*VoidWalkers:*  Commander Psykes (WALKER 1) created the space combat division, focusing on ship-to-ship combat and orbital operations. VoidWalkers handles space combat, fleet coordination, fighter operations, and air support for ground forces. Psykes' doctrine: "Space superiority enables everything else."
+*Alpha Squad:*  Commander Psykes (WALKER 1) created the space combat division, focusing on ship-to-ship combat and orbital operations. Alpha Squad handles space combat, fleet coordination, fighter operations, and air support for ground forces. Psykes' doctrine: "Space superiority enables everything else."
 
 This three-division structure allowed EHA to offer comprehensive military services - from logistics and engineering to ground combat and space operations - setting them apart from single-focus PMCs.
 
@@ -53,7 +53,7 @@ As EHA's operations grew more complex, the founding commanders recognized the ne
 *Division AI Officers:*  Each division received an AI operations officer to handle tactical planning and mission coordination:
 - Lt. Colonel Morrison (Nexus Logistics Corps) - Logistics operations and engineering coordination
 - Lt. Colonel Van Der Merwe (Morozov Battalion) - Tactical operations and combat planning
-- Lt. Colonel Reeves (VoidWalkers) - Flight operations and space combat coordination
+- Lt. Colonel Reeves (Alpha Squad) - Flight operations and space combat coordination
 
 *Staff AI Officers:*  Cross-division support provided by:
 - Lt. Colonel Singh (Intelligence) - Threat analysis, reconnaissance planning, and intelligence briefings
@@ -64,7 +64,7 @@ The Integration Protocol was revolutionary - AI officers handled complex plannin
 
                                                                                    *Current Era (2953-Present)*
 
-*The Psykes Departure (2953):*  In early 2953, Commander Psykes resigned from EHA command citing personal reasons. His departure was amicable, and he remains respected within the organization. The VoidWalkers commander position remains vacant, with Lt. Colonel Reeves (AI) managing flight operations as acting commander until a suitable replacement is found. This vacancy presents both challenge and opportunity - EHA continues to operate effectively but seeks a commander who shares the original vision and can lead VoidWalkers to new heights.
+*The Psykes Departure (2953):*  In early 2953, Commander Psykes resigned from EHA command citing personal reasons. His departure was amicable, and he remains respected within the organization. The Alpha Squad commander position remains vacant, with Lt. Colonel Reeves (AI) managing flight operations as acting commander until a suitable replacement is found. This vacancy presents both challenge and opportunity - EHA continues to operate effectively but seeks a commander who shares the original vision and can lead Alpha Squad to new heights.
 
 *Modern Operations:*  Today, EHA operates primarily in the Stanton system with occasional operations extending to adjacent regions. The organization has maintained its founding principles while growing its capabilities and reputation.
 
@@ -85,7 +85,7 @@ The organization has earned a strong reputation for:
 - Establish EHA as the premier PMC in the Stanton system
 - Build sustainable logistics infrastructure for extended operations
 - Maintain elite combat readiness across all divisions
-- Find a qualified VoidWalkers commander who shares the founding vision
+- Find a qualified Alpha Squad commander who shares the founding vision
 - Expand contract base while maintaining quality standards and professional reputation
 
 
@@ -97,12 +97,12 @@ The organization has earned a strong reputation for:
 - General Vance (AI) - Fleet Commander providing strategic coordination and story direction
 - Commander Atlay (NEXUS 1) - Logistics and Engineering, Nexus Logistics Corps
 - Commander Hunter (BRAVO 1) - Foot Combat, Morozov Battalion
-- VoidWalkers Commander (VACANT) - Ship Combat, VoidWalkers Division
+- Alpha Squad Commander (VACANT) - Ship Combat, Alpha Squad Division
 
 *Division Support Officers (AI):*
 - Lt. Colonel Morrison - Logistics Operations (serves Commander Atlay)
 - Lt. Colonel Van Der Merwe - Tactical Operations (serves Commander Hunter)
-- Lt. Colonel Reeves - Flight Operations (acting VoidWalkers commander)
+- Lt. Colonel Reeves - Flight Operations (acting Alpha Squad commander)
 
 *Staff Officers (AI):*
 - Lt. Colonel Singh - Intelligence Officer (cross-division support)
@@ -114,7 +114,7 @@ The organization has earned a strong reputation for:
 
 *Morozov Battalion:*  Ground combat units specializing in foot combat, direct action missions, tactical operations, security and defensive operations, and combat training.
 
-*VoidWalkers:*  Space combat specialists handling ship-to-ship combat, fleet coordination, fighter and bomber operations, air support for ground forces, and orbital operations.
+*Alpha Squad:*  Space combat specialists handling ship-to-ship combat, fleet coordination, fighter and bomber operations, air support for ground forces, and orbital operations.
 
 
                                                                                    *Command Philosophy*
@@ -132,7 +132,7 @@ EHA's approach to military operations is guided by several core principles:
 
                                                                                    *Legacy and Outlook*
 
-Event Horizon Armada stands at a pivotal moment in its history. With a strong foundation, proven capabilities, and innovative AI-augmented command structure, the organization is positioned for significant growth in influence and capability. The VoidWalkers commander vacancy represents an opportunity for fresh leadership and new strategic directions.
+Event Horizon Armada stands at a pivotal moment in its history. With a strong foundation, proven capabilities, and innovative AI-augmented command structure, the organization is positioned for significant growth in influence and capability. The Alpha Squad commander vacancy represents an opportunity for fresh leadership and new strategic directions.
 
 As the UEE's influence waxes and wanes across the frontier, professional PMCs like EHA become increasingly vital to maintaining order and security. The organization's commitment to professionalism, combined arms excellence, and sustainable operations positions it to thrive in the chaotic but opportunity-rich environment of the Stanton system and beyond.
 

@@ -18,7 +18,7 @@ command_structure:
   board_of_directors:
     - "Commander Atlay (NEXUS 1)"
     - "Commander Hunter (BRAVO 1)"
-    - "VoidWalkers Commander (TBD)"
+    - "Alpha Squad Commander (TBD)"
 
   divisions:
     nexus_logistics_corps:
@@ -45,7 +45,7 @@ command_structure:
         - "Boarding actions"
       ai_support_officer: "Lt. Colonel Van Der Merwe (Tactical Operations)"
 
-    voidwalkers:
+    alphasquad:
       commander: "Position Vacant (formerly Psykes)"
       callsign: "WALKER 1"
       focus: "Ship Combat"
@@ -184,15 +184,15 @@ current_operations:
         - "Monitor activity near Pyro-Nyx corridor"
         - "Prepare for potential frontier expansion operations"
       tactical:
-        - "Escort convoy operations (Nexus + VoidWalkers)"
-        - "Offensive strikes on pirate bases (Morozov + VoidWalkers)"
+        - "Escort convoy operations (Nexus + Alpha Squad)"
+        - "Offensive strikes on pirate bases (Morozov + Alpha Squad)"
         - "Intel gathering operations (All divisions + Singh)"
         - "Forward logistics positioning in Pyro (Nexus)"
 
     division_assignments:
       nexus: "Secure supply lines, establish forward logistics at Ruin Station"
       morozov: "Ground assault on pirate facilities in Stanton/Pyro"
-      voidwalkers: "Space interdiction and deep Pyro patrols"
+      alphasquad: "Space interdiction and deep Pyro patrols"
       intelligence: "Monitor enemy movements toward Nyx corridor"
 
     narrative_progression:
@@ -327,7 +327,7 @@ ai_officer_guidelines:
     Nexus Logistics Corps with a reconnaissance and possible interdiction
     mission. Coordinate with Lt. Colonel Morrison on logistics support.
     Recommend C2 Hercules for cargo recovery if cache is confirmed.
-    VoidWalkers on standby for fighter escort if needed."
+    Alpha Squad on standby for fighter escort if needed."
 
   example_bad_mission: |
     ❌ "Commander Atlay, head to the Arcadia system and secure the sector."

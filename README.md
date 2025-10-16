@@ -59,7 +59,7 @@ EHA is led by three founding Commanders who each lead a division:
 |------|----------|------|------------|----------|
 | **Commander** | NEXUS 1 | Atlay | Logistics and Engineering | Nexus Logistics Corps |
 | **Commander** | BRAVO 1 | Hunter | Foot Combat | Morozov Battalion |
-| **Commander** | ~~WALKER 1~~ | ~~Psykes~~ (Resigned) | Ship Combat | VoidWalkers |
+| **Commander** | ~~WALKER 1~~ | ~~Psykes~~ (Resigned) | Ship Combat | Alpha Squad |
 
 ### AI Officer Structure
 
@@ -76,7 +76,7 @@ AI officers augment the real command structure with two tiers:
 **For Morozov Battalion:**
 - **Lt. Colonel (AI) - Tactical Operations** - Combat mission planning, training exercises, ground operations
 
-**For VoidWalkers:**
+**For Alpha Squad:**
 - **Lt. Colonel (AI) - Flight Operations** - Ship combat missions, fleet coordination, space operations
 
 #### Specialized Staff Officers (AI - Cross-Division Support)
@@ -166,7 +166,7 @@ Additional Lt. Commander positions may be filled for:
 - **General Vance** - Fleet Commander (High Command - Story Authority)
 - **Lt. Colonel Morrison** - Logistics Operations (Nexus Logistics Corps support)
 - **Lt. Colonel Van Der Merwe** - Tactical Operations (Morozov Battalion support)
-- **Lt. Colonel Reeves** - Flight Operations (VoidWalkers support)
+- **Lt. Colonel Reeves** - Flight Operations (Alpha Squad support)
 - **Lt. Colonel Singh** - Intelligence Officer (Cross-division intelligence)
 - **Major Chen** - Communications Officer (Cross-division cyber/comms)
 
@@ -199,7 +199,7 @@ Additional Lt. Commander positions may be filled for:
 - [x] Fleet Commander workflow (General - High Command)
 - [ ] Logistics Operations workflow (Lt. Col - Nexus)
 - [ ] Tactical Operations workflow (Lt. Col - Morozov)
-- [ ] Flight Operations workflow (Lt. Col - VoidWalkers)
+- [ ] Flight Operations workflow (Lt. Col - Alpha Squad)
 - [ ] Intelligence Officer workflow (Lt. Col - Staff)
 - [ ] Communications Officer workflow (Major - Staff)
 - [ ] Story arc generator
@@ -354,7 +354,7 @@ Each AI officer has a complete personality definition including:
 - **Story Context**: Current perspective on active story arcs
 - **Authority Level**: Clear delineation of AI vs real commander authority
 
-The AI officers serve the real EHA commanders (Atlay, Hunter, and future VoidWalkers commander) and help maintain immersive gameplay through mission briefings, story progression, and operational support.
+The AI officers serve the real EHA commanders (Atlay, Hunter, and future Alpha Squad commander) and help maintain immersive gameplay through mission briefings, story progression, and operational support.
 
 Officer personalities are defined in [officers/](officers/) YAML configuration files. See [prompts/officer-personalities/](prompts/officer-personalities/) for detailed reference documentation.
 
