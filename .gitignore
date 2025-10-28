@@ -32,8 +32,10 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# Claude Code configuration (user-specific)
-.claude/
+# Claude Code (local settings only - skills and context are committed)
+.claude/*
+!.claude/skills/
+!.claude/context/
 
 # n8n local data (if running locally)
 .n8n/
